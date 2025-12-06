@@ -243,7 +243,8 @@ namespace ETL_CsvToDatabase.Core
     SqlConnection connection,
     string tempTableName,
     string destinationTableName,
-    ValidationResult validationResult)
+    ValidationResult validationResult,
+    int commandTimeout = 0)
         {
             try
             {
@@ -267,7 +268,7 @@ namespace ETL_CsvToDatabase.Core
 
                 ConsoleLogger.LogInfo("transfer", "Executing INSERT INTO statement...");
                 using var cmd = new SqlCommand(transferQuery, connection);
-                cmd.CommandTimeout = 0; // No timeout for large transfers
+                cmd.CommandTimeout = commandTimeout;
                 int rowsAffected = await cmd.ExecuteNonQueryAsync();
                 ConsoleLogger.LogInfo("transfer", $"INSERT completed. Rows affected: {rowsAffected:N0}");
 

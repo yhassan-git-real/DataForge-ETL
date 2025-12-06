@@ -39,7 +39,7 @@ namespace ETL_ExcelToDatabase
                 EnsureExcelFolderExists(processConfig.ExcelFolderPath);
 
                 // Process all Excel files and collect metrics
-                (totalRowsProcessed, successfulFiles, failedFiles) = await ProcessFiles(connectionString, processConfig);
+                (totalRowsProcessed, successfulFiles, failedFiles) = await ProcessFiles(connectionString, processConfig, dbConfig);
 
                 // Display final processing summary
                 totalTimer.Stop();
@@ -175,7 +175,7 @@ namespace ETL_ExcelToDatabase
             }
         }
 
-        private static async Task<(long totalRows, List<string> successfulFiles, List<string> failedFiles)> ProcessFiles(string connectionString, ProcessConfig config)
+        private static async Task<(long totalRows, List<string> successfulFiles, List<string> failedFiles)> ProcessFiles(string connectionString, ProcessConfig config, DatabaseConfig dbConfig)
         {
             if (!Directory.Exists(config.ExcelFolderPath))
             {
@@ -272,7 +272,7 @@ namespace ETL_ExcelToDatabase
 
                 try
                 {
-                    long fileRows = await ProcessSingleFile(connection, excelFile, config);
+                    long fileRows = await ProcessSingleFile(connection, excelFile, config, dbConfig);
                     if (fileRows > 0)
                     {
                         totalRowsProcessed += fileRows;
@@ -359,7 +359,7 @@ namespace ETL_ExcelToDatabase
             await cmd.ExecuteNonQueryAsync();
         }
 
-        private static async Task<long> ProcessSingleFile(SqlConnection connection, string excelFile, ProcessConfig config)
+        private static async Task<long> ProcessSingleFile(SqlConnection connection, string excelFile, ProcessConfig config, DatabaseConfig dbConfig)
         {
             Stopwatch stopwatch = new();
             stopwatch.Start();
@@ -399,7 +399,7 @@ namespace ETL_ExcelToDatabase
                             return 0; // Skip this file and continue with next
                         }
 
-                        totalRows = await HandleFinalBatchProcessing(connection, config, dataBatch, excelFile, stopwatch, validationResult);
+                        totalRows = await HandleFinalBatchProcessing(connection, config, dataBatch, excelFile, stopwatch, validationResult, dbConfig);
                     }
                 }
             }
@@ -429,13 +429,15 @@ namespace ETL_ExcelToDatabase
             BatchResult dataBatch,
             string excelFile,
             Stopwatch stopwatch,
-            ValidationResult validationResult)
+            ValidationResult validationResult,
+            DatabaseConfig dbConfig)
         {
             long rowsProcessed = await DatabaseOperations.TransferDataToDestinationAsync(
                 connection,
                 config.TempTableName,
                 config.DestinationTableName,
-                validationResult);
+                validationResult,
+                dbConfig.CommandTimeout);
 
             stopwatch.Stop();
             double processingTimeSeconds = stopwatch.Elapsed.TotalSeconds;

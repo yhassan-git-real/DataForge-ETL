@@ -69,7 +69,7 @@ namespace ETL_CsvToDatabase
                 EnsureCsvFolderExists(processConfig.CsvFolderPath);
 
                 // Process all CSV files and collect metrics
-                (totalRowsProcessed, successfulFiles, failedFiles) = await ProcessFiles(connectionString, processConfig);
+                (totalRowsProcessed, successfulFiles, failedFiles) = await ProcessFiles(connectionString, processConfig, dbConfig);
 
                 // Display final processing summary
                 totalTimer.Stop();
@@ -204,7 +204,7 @@ namespace ETL_CsvToDatabase
             }
         }
 
-        private static async Task<(long totalRows, List<string> successfulFiles, List<string> failedFiles)> ProcessFiles(string connectionString, ProcessConfig config)
+        private static async Task<(long totalRows, List<string> successfulFiles, List<string> failedFiles)> ProcessFiles(string connectionString, ProcessConfig config, ETL_CsvToDatabase.Core.DatabaseConfig dbConfig)
         {
             if (!Directory.Exists(config.CsvFolderPath))
             {
@@ -307,7 +307,7 @@ namespace ETL_CsvToDatabase
 
                 try
                 {
-                    long fileRows = await ProcessSingleFile(connection, csvFile, config);
+                    long fileRows = await ProcessSingleFile(connection, csvFile, config, dbConfig);
                     if (fileRows > 0)
                     {
                         totalRowsProcessed += fileRows;
@@ -401,7 +401,7 @@ namespace ETL_CsvToDatabase
             await cmd.ExecuteNonQueryAsync();
         }
 
-        private static async Task<long> ProcessSingleFile(SqlConnection connection, string csvFile, ProcessConfig config)
+        private static async Task<long> ProcessSingleFile(SqlConnection connection, string csvFile, ProcessConfig config, ETL_CsvToDatabase.Core.DatabaseConfig dbConfig)
         {
             Stopwatch stopwatch = new();
             stopwatch.Start();
@@ -455,7 +455,7 @@ namespace ETL_CsvToDatabase
                         }
 
                         ConsoleLogger.LogInfo("processing", "✓ Validation passed - Starting data transfer to destination table...");
-                        long transferredRows = await HandleFinalBatchProcessing(connection, config, dataBatch, csvFile, stopwatch, validationResult);
+                        long transferredRows = await HandleFinalBatchProcessing(connection, config, dataBatch, csvFile, stopwatch, validationResult, dbConfig);
                         totalRows = transferredRows;
                         ConsoleLogger.LogInfo("processing", $"✓ Data transfer completed successfully. Rows transferred: {transferredRows:N0}");
                     }
@@ -487,13 +487,15 @@ namespace ETL_CsvToDatabase
             BatchResult dataBatch,
             string csvFile,
             Stopwatch stopwatch,
-            ValidationResult validationResult)
+            ValidationResult validationResult,
+            ETL_CsvToDatabase.Core.DatabaseConfig dbConfig)
         {
             long rowsProcessed = await DatabaseOperations.TransferDataToDestinationAsync(
                 connection,
                 config.TempTableName,
                 config.DestinationTableName,
-                validationResult);
+                validationResult,
+                dbConfig.CommandTimeout);
 
             stopwatch.Stop();
             double processingTimeSeconds = stopwatch.Elapsed.TotalSeconds;

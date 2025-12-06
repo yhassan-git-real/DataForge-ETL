@@ -240,7 +240,8 @@ namespace ETL_ExcelToDatabase.Core
     SqlConnection connection,
     string tempTableName,
     string destinationTableName,
-    ValidationResult validationResult)
+    ValidationResult validationResult,
+    int commandTimeout = 0)
         {
             try
             {
@@ -258,6 +259,7 @@ namespace ETL_ExcelToDatabase.Core
             FROM [{tempTableName}]";
 
                 using var cmd = new SqlCommand(transferQuery, connection);
+                cmd.CommandTimeout = commandTimeout;
                 await cmd.ExecuteNonQueryAsync();
 
                 // Get final count and calculate rows transferred
