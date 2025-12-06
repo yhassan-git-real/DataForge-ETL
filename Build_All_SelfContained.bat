@@ -65,16 +65,16 @@ if errorlevel 1 (
 )
 echo ETL_ExcelToDatabase build completed successfully.
 
-REM Build UniversalExcelTool.UI
+REM Build DataForgeETL.UI
 echo.
-echo [6/6] Building UniversalExcelTool.UI...
-dotnet build "UniversalExcelTool.UI\UniversalExcelTool.UI.csproj" -c Release
+echo [6/6] Building DataForgeETL.UI...
+dotnet build "DataForgeETL.UI\DataForgeETL.UI.csproj" -c Release
 if errorlevel 1 (
-    echo UniversalExcelTool.UI build failed!
+    echo DataForgeETL.UI build failed!
     pause
     exit /b 1
 )
-echo UniversalExcelTool.UI build completed successfully.
+echo DataForgeETL.UI build completed successfully.
 
 echo.
 echo ========================================
@@ -87,6 +87,6 @@ echo   ETL_CsvToDatabase\bin\Release\net8.0\win-x64\publish\
 echo   ETL_DynamicTableManager\bin\Release\net8.0\win-x64\publish\
 echo   ETL_Excel\bin\Release\net8.0\win-x64\publish\
 echo   ETL_ExcelToDatabase\bin\Release\net8.0\win-x64\publish\
-echo   UniversalExcelTool.UI\bin\Release\net8.0\
+echo   DataForgeETL.UI\bin\Release\net8.0\
 echo.
 pause

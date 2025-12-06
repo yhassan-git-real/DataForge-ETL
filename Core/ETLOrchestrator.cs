@@ -7,7 +7,7 @@ using DataForgeETL.Core;
 namespace DataForgeETL.Core
 {
     /// <summary>
-    /// Centralized orchestrator for the Universal Excel Tool ETL process
+    /// Centralized orchestrator for the DataForge ETL process
     /// Manages the execution of all modules with unified configuration
     /// </summary>
     public class ETLOrchestrator
@@ -338,7 +338,7 @@ namespace DataForgeETL.Core
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║              UNIVERSAL EXCEL TOOL ORCHESTRATOR v2.0.0        ║");
+            Console.WriteLine("║                DATAFORGE ETL ORCHESTRATOR v2.0.0             ║");
             Console.WriteLine("║                                                               ║");
             Console.WriteLine("║  Centralized ETL Process Management with Unified Config      ║");
             Console.WriteLine("║  Location-agnostic • Self-contained • Environment-friendly   ║");

@@ -31,14 +31,14 @@ namespace ETL_CsvToDatabase.Services
         private static string GetDynamicConfigFilePath()
         {
             string baseDir = Path.GetDirectoryName(AppContext.BaseDirectory) ?? "";
-            while (!string.IsNullOrEmpty(baseDir) && !Path.GetFileName(baseDir).Equals("Universal_Excel_Tool", StringComparison.OrdinalIgnoreCase))
+            while (!string.IsNullOrEmpty(baseDir) && !Path.GetFileName(baseDir).Equals("DataForge ETL", StringComparison.OrdinalIgnoreCase))
             {
                 baseDir = Path.GetDirectoryName(baseDir) ?? "";
             }
             
             if (string.IsNullOrEmpty(baseDir))
             {
-                baseDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Universal_Excel_Tool");
+                baseDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "DataForge ETL");
             }
             
             return Path.Combine(baseDir, DYNAMIC_CONFIG_FILENAME);

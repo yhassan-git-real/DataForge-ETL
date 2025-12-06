@@ -5,7 +5,7 @@ using DataForgeETL.Core;
 namespace DataForgeETL
 {
     /// <summary>
-    /// Main entry point for the Universal Excel Tool with unified configuration
+    /// Main entry point for the DataForge ETL with unified configuration
     /// </summary>
     internal static class Program
     {
@@ -172,11 +172,11 @@ namespace DataForgeETL
         private static void DisplayHelp()
         {
             Console.WriteLine();
-            Console.WriteLine("Universal Excel Tool - Unified ETL Process Manager");
-            Console.WriteLine("================================================");
+            Console.WriteLine("DataForge ETL - Unified ETL Process Manager");
+            Console.WriteLine("===========================================");
             Console.WriteLine();
             Console.WriteLine("USAGE:");
-            Console.WriteLine("  UniversalExcelTool.exe [OPTIONS]");
+            Console.WriteLine("  DataForgeETL.exe [OPTIONS]");
             Console.WriteLine();
             Console.WriteLine("OPTIONS:");
             Console.WriteLine("  --help, -h                    Show this help message");
@@ -195,19 +195,19 @@ namespace DataForgeETL
             Console.WriteLine();
             Console.WriteLine("EXAMPLES:");
             Console.WriteLine("  # Run complete ETL process");
-            Console.WriteLine("  UniversalExcelTool.exe");
+            Console.WriteLine("  DataForgeETL.exe");
             Console.WriteLine();
             Console.WriteLine("  # Run with existing dynamic configuration");
-            Console.WriteLine("  UniversalExcelTool.exe --skip-dynamic-config");
+            Console.WriteLine("  DataForgeETL.exe --skip-dynamic-config");
             Console.WriteLine();
             Console.WriteLine("  # Update root directory for new environment");
-            Console.WriteLine("  UniversalExcelTool.exe --root-directory \"YOUR_PROJECT_PATH\"");
+            Console.WriteLine("  DataForgeETL.exe --root-directory \"YOUR_PROJECT_PATH\"");
             Console.WriteLine();
             Console.WriteLine("  # Run only table configuration");
-            Console.WriteLine("  UniversalExcelTool.exe --dynamic-table-only");
+            Console.WriteLine("  DataForgeETL.exe --dynamic-table-only");
             Console.WriteLine();
             Console.WriteLine("  # Show current configuration");
-            Console.WriteLine("  UniversalExcelTool.exe --show-config");
+            Console.WriteLine("  DataForgeETL.exe --show-config");
             Console.WriteLine();
         }
     }

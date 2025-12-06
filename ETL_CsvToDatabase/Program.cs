@@ -3,7 +3,7 @@ using Microsoft.Data.SqlClient;
 using ETL_CsvToDatabase.Core;
 using ETL_CsvToDatabase.Models;
 using ETL_CsvToDatabase.Services;
-using UniversalExcelTool.Core;
+using DataForgeETL.Core;
 
 namespace ETL_CsvToDatabase
 {
@@ -212,7 +212,7 @@ namespace ETL_CsvToDatabase
             }
 
             // Get notification settings from unified configuration
-            var configManager = UniversalExcelTool.Core.UnifiedConfigurationManager.Instance;
+            var configManager = DataForgeETL.Core.UnifiedConfigurationManager.Instance;
             var unifiedConfig = configManager.GetConfiguration();
             bool enableProgressNotifications = unifiedConfig.Notifications?.Csv?.EnableProgressNotifications ?? true;
             int progressNotificationInterval = unifiedConfig.Notifications?.Csv?.ProgressNotificationInterval ?? 50000;
@@ -408,7 +408,7 @@ namespace ETL_CsvToDatabase
             long totalRows = 0;
 
             // Get notification settings from unified configuration
-            var configManager = UniversalExcelTool.Core.UnifiedConfigurationManager.Instance;
+            var configManager = DataForgeETL.Core.UnifiedConfigurationManager.Instance;
             var unifiedConfig = configManager.GetConfiguration();
             bool enableProgressNotifications = unifiedConfig.Notifications?.Csv?.EnableProgressNotifications ?? true;
             int progressNotificationInterval = unifiedConfig.Notifications?.Csv?.ProgressNotificationInterval ?? 50000;
@@ -536,7 +536,7 @@ namespace ETL_CsvToDatabase
             try
             {
                 // Get the path to Dynamic Table Manager executable using UnifiedConfigurationManager
-                var configManager = UniversalExcelTool.Core.UnifiedConfigurationManager.Instance;
+                var configManager = DataForgeETL.Core.UnifiedConfigurationManager.Instance;
                 string dynamicTableManagerPath = configManager.GetExecutablePath("dynamictablemanager");
 
                 if (!File.Exists(dynamicTableManagerPath))
