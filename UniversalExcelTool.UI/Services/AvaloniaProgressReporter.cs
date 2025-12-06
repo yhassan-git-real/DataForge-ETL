@@ -22,6 +22,7 @@ namespace UniversalExcelTool.UI.Services
         {
             Dispatcher.UIThread.Post(() =>
             {
+                _progressInfo.IsRunning = true;
                 _progressInfo.OverallProgress = percentage;
                 _progressInfo.Status = status;
                 _progressInfo.Elapsed = DateTime.Now - _progressInfo.StartTime;
@@ -34,6 +35,7 @@ namespace UniversalExcelTool.UI.Services
         {
             Dispatcher.UIThread.Post(() =>
             {
+                _progressInfo.IsRunning = true;
                 _progressInfo.CurrentFile = currentFile;
                 _progressInfo.TotalFiles = totalFiles;
                 _progressInfo.CurrentFileName = fileName;
@@ -64,6 +66,7 @@ namespace UniversalExcelTool.UI.Services
             Dispatcher.UIThread.Post(() =>
             {
                 _progressInfo.IsComplete = true;
+                _progressInfo.IsRunning = false;
                 _progressInfo.OverallProgress = success ? 100 : _progressInfo.OverallProgress;
                 _progressInfo.Status = success 
                     ? (string.IsNullOrEmpty(message) ? "Completed successfully" : message)
@@ -84,13 +87,14 @@ namespace UniversalExcelTool.UI.Services
                 _progressInfo.CurrentFileName = null;
                 _progressInfo.CurrentRow = 0;
                 _progressInfo.TotalRows = 0;
-                _progressInfo.Status = "Ready";
+                _progressInfo.Status = "Initializing...";
                 _progressInfo.StartTime = DateTime.Now;
                 _progressInfo.Elapsed = TimeSpan.Zero;
                 _progressInfo.EstimatedTimeRemaining = null;
                 _progressInfo.IsComplete = false;
                 _progressInfo.IsError = false;
                 _progressInfo.ErrorMessage = null;
+                _progressInfo.IsRunning = true;
                 _onProgressChanged?.Invoke();
             });
         }
@@ -100,6 +104,7 @@ namespace UniversalExcelTool.UI.Services
             Dispatcher.UIThread.Post(() =>
             {
                 _progressInfo.IsError = true;
+                _progressInfo.IsRunning = false;
                 _progressInfo.ErrorMessage = message;
                 _progressInfo.Status = "Error occurred";
                 _onProgressChanged?.Invoke();
