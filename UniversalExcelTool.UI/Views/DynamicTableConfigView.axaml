@@ -150,10 +150,36 @@
         <Border Grid.Row="3" Background="White" BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="8" BoxShadow="0 1 2 0 #0000000A">
             <Grid RowDefinitions="Auto,*">
                 <Border Grid.Row="0" BorderBrush="#E5E7EB" BorderThickness="0,0,0,1" Padding="12,8" Background="#F9FAFB" CornerRadius="8,8,0,0">
-                    <StackPanel Orientation="Horizontal" Spacing="6">
-                        <TextBlock Text="📋" FontSize="12" VerticalAlignment="Center"/>
-                        <TextBlock Text="Configuration Log" FontWeight="SemiBold" FontSize="12" Foreground="#374151" VerticalAlignment="Center"/>
-                    </StackPanel>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="6">
+                            <TextBlock Text="📋" FontSize="12" VerticalAlignment="Center"/>
+                            <TextBlock Text="Configuration Log" FontWeight="SemiBold" FontSize="12" Foreground="#374151" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <Button Grid.Column="1"
+                                Command="{Binding ClearLogsCommand}"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Height="28"
+                                MinWidth="80"
+                                Padding="12,0"
+                                Background="#F9FAFB"
+                                Foreground="#374151"
+                                BorderBrush="#E5E7EB"
+                                BorderThickness="1"
+                                CornerRadius="6"
+                                FontSize="11"
+                                FontWeight="Medium"
+                                Cursor="Hand">
+                            <TextBlock Text="Clear Logs"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <Button.Styles>
+                                <Style Selector="Button:pointerover">
+                                    <Setter Property="Background" Value="#F3F4F6"/>
+                                </Style>
+                            </Button.Styles>
+                        </Button>
+                    </Grid>
                 </Border>
                 <ScrollViewer Grid.Row="1">
                     <ItemsControl ItemsSource="{Binding LogEntries}">

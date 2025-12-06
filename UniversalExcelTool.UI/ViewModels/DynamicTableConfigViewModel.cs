@@ -359,5 +359,11 @@ namespace UniversalExcelTool.UI.ViewModels
             // Can only contain letters, digits, and underscores
             return tableName.All(c => char.IsLetterOrDigit(c) || c == '_');
         }
+
+        [RelayCommand]
+        private void ClearLogs()
+        {
+            LogEntries.Clear();
+        }
     }
 }
