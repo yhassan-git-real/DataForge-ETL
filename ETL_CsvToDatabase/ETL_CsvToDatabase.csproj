@@ -24,9 +24,9 @@
     <ProjectReference Include="..\Core\DataForgeETL.csproj" />
   </ItemGroup>
 
-  <!-- Include appsettings.json as content to be copied -->
+  <!-- Copy config folder from parent directory -->
   <ItemGroup>
-    <None Include="..\appsettings.json" Link="appsettings.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="..\config\**\*" Link="config\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>

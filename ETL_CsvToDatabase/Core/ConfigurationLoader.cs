@@ -2,12 +2,13 @@ using System;
 using System.IO;
 using Newtonsoft.Json;
 using ETL_CsvToDatabase.Core;
+using DataForgeETL.Core;
 
 namespace ETL_CsvToDatabase.Core
 {
     public static class ConfigurationLoader
     {
-        private static UnifiedConfigurationManager? _unifiedConfig;
+        private static DataForgeETL.Core.UnifiedConfigurationManager? _unifiedConfig;
 
         public static T LoadConfiguration<T>(string configPath) where T : class
         {
@@ -21,7 +22,7 @@ namespace ETL_CsvToDatabase.Core
 
         private static AppConfig LoadUnifiedConfiguration()
         {
-            _unifiedConfig = UnifiedConfigurationManager.Instance;
+            _unifiedConfig = DataForgeETL.Core.UnifiedConfigurationManager.Instance;
             var unifiedConfig = _unifiedConfig.GetConfiguration();
 
             // Convert unified config to AppConfig format
@@ -52,7 +53,7 @@ namespace ETL_CsvToDatabase.Core
         public static string GetConfigPath()
         {
             // Always use unified configuration
-            _unifiedConfig = UnifiedConfigurationManager.Instance;
+            _unifiedConfig = DataForgeETL.Core.UnifiedConfigurationManager.Instance;
             return "UNIFIED_CONFIG"; // Special marker for unified config
         }
 

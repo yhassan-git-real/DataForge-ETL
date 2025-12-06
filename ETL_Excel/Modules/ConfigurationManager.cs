@@ -1,5 +1,6 @@
 using ETL_Excel.Models;
 using ETL_Excel.Core;
+using DataForgeETL.Core;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace ETL_Excel.Modules
     public static class ConfigurationManager
     {
         private static ConfigurationModel? _config;
-        private static UnifiedConfigurationManager? _unifiedConfig;
+        private static DataForgeETL.Core.UnifiedConfigurationManager? _unifiedConfig;
 
         public static ConfigurationModel GetConfig()
         {
@@ -26,7 +27,7 @@ namespace ETL_Excel.Modules
             try
             {
                 // Load from unified configuration
-                _unifiedConfig = UnifiedConfigurationManager.Instance;
+                _unifiedConfig = DataForgeETL.Core.UnifiedConfigurationManager.Instance;
                 var unifiedConfig = _unifiedConfig.GetConfiguration();
                 
                 // Convert unified config to application format

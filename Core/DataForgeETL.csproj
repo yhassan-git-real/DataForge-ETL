@@ -24,9 +24,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
-  <!-- Copy appsettings.json from parent directory -->
+  <!-- Copy config folder from parent directory -->
   <ItemGroup>
-    <None Include="..\appsettings.json" Link="appsettings.json">
+    <None Include="..\config\**\*" Link="config\%(RecursiveDir)%(Filename)%(Extension)">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>

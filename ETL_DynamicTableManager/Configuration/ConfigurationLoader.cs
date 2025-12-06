@@ -1,6 +1,7 @@
 using Newtonsoft.Json;
 using ETL_DynamicTableManager.Models;
 using ETL_DynamicTableManager.Core;
+using DataForgeETL.Core;
 
 namespace ETL_DynamicTableManager.Configuration
 {
@@ -14,10 +15,10 @@ namespace ETL_DynamicTableManager.Configuration
         /// </summary>
         public static Models.EtlConfig LoadEtlConfiguration()
         {
-            var unifiedConfig = UnifiedConfigurationManager.Instance;
+            var unifiedConfig = DataForgeETL.Core.UnifiedConfigurationManager.Instance;
             var config = unifiedConfig.GetConfiguration();
             
-            Console.WriteLine($"✓ ETL configuration loaded from unified configuration (appsettings.json)");
+            Console.WriteLine($"✓ ETL configuration loaded from unified configuration");
             
             return new Models.EtlConfig
             {

@@ -1,0 +1,11 @@
+{
+  "Database": {
+    "Server": "MATRIX\\MATRIX",
+    "Database": "RAW_PROCESS",
+    "IntegratedSecurity": true,
+    "Username": "",
+    "Password": "",
+    "ConnectionTimeout": 600,
+    "CommandTimeout": 0
+  }
+}

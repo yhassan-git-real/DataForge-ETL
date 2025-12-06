@@ -35,21 +35,22 @@ namespace DataForgeETL.Core
         }
 
         /// <summary>
-        /// Loads the unified configuration from appsettings.json
+        /// Loads the unified configuration from config folder
         /// </summary>
         public void LoadConfiguration()
         {
             try
             {
-                string configPath = GetConfigurationFilePath();
+                string rootDir = FindRootProjectDirectory();
+                string configFolder = Path.Combine(rootDir, "config");
                 
-                if (!File.Exists(configPath))
+                // Config folder is required
+                if (!Directory.Exists(configFolder))
                 {
-                    throw new FileNotFoundException($"Configuration file not found: {configPath}");
+                    throw new DirectoryNotFoundException($"Configuration folder not found: {configFolder}. Please ensure the 'config' folder exists in the root directory.");
                 }
 
-                string jsonContent = File.ReadAllText(configPath);
-                _config = JsonConvert.DeserializeObject<UnifiedConfig>(jsonContent);
+                _config = LoadSplitConfiguration(configFolder);
 
                 if (_config == null)
                 {
@@ -63,7 +64,7 @@ namespace DataForgeETL.Core
 
                 ValidateConfiguration();
                 
-                Console.WriteLine($"✓ Configuration loaded successfully");
+                Console.WriteLine($"✓ Configuration loaded successfully from config folder");
                 Console.WriteLine($"✓ Root Directory: {_rootDirectory}");
             }
             catch (Exception ex)
@@ -73,17 +74,119 @@ namespace DataForgeETL.Core
         }
 
         /// <summary>
-        /// Gets the path to the appsettings.json file from the root project directory
+        /// Loads and merges configuration from multiple JSON files in the config folder
         /// </summary>
-        private string GetConfigurationFilePath()
+        private UnifiedConfig LoadSplitConfiguration(string configFolder)
         {
-            // Find the root project directory (where Core, ETL modules exist)
+            var config = new UnifiedConfig();
+
+            // Load each configuration file and merge
+            var configFiles = new[]
+            {
+                "environment.json",
+                "database.json",
+                "paths.json",
+                "modules.json",
+                "processing.json",
+                "logging.json",
+                "tables.json",
+                "notifications.json"
+            };
+
+            foreach (var configFile in configFiles)
+            {
+                string filePath = Path.Combine(configFolder, configFile);
+                if (File.Exists(filePath))
+                {
+                    string jsonContent = File.ReadAllText(filePath);
+                    var partialConfig = JsonConvert.DeserializeObject<UnifiedConfig>(jsonContent);
+                    
+                    if (partialConfig != null)
+                    {
+                        MergeConfiguration(config, partialConfig);
+                    }
+                }
+            }
+
+            return config;
+        }
+
+        /// <summary>
+        /// Merges partial configuration into the main configuration
+        /// </summary>
+        private void MergeConfiguration(UnifiedConfig target, UnifiedConfig source)
+        {
+            // Merge Environment
+            if (source.Environment != null && !string.IsNullOrEmpty(source.Environment.RootDirectory))
+            {
+                target.Environment.RootDirectory = source.Environment.RootDirectory;
+                target.Environment.Environment = source.Environment.Environment;
+            }
+
+            // Merge Database
+            if (source.Database != null && !string.IsNullOrEmpty(source.Database.Server))
+            {
+                target.Database = source.Database;
+            }
+
+            // Merge Paths
+            if (source.Paths != null)
+            {
+                if (!string.IsNullOrEmpty(source.Paths.InputExcelFiles))
+                    target.Paths.InputExcelFiles = source.Paths.InputExcelFiles;
+                if (!string.IsNullOrEmpty(source.Paths.InputCsvFiles))
+                    target.Paths.InputCsvFiles = source.Paths.InputCsvFiles;
+                if (!string.IsNullOrEmpty(source.Paths.OutputExcelFiles))
+                    target.Paths.OutputExcelFiles = source.Paths.OutputExcelFiles;
+                if (!string.IsNullOrEmpty(source.Paths.SpecialExcelFiles))
+                    target.Paths.SpecialExcelFiles = source.Paths.SpecialExcelFiles;
+                if (!string.IsNullOrEmpty(source.Paths.LogFiles))
+                    target.Paths.LogFiles = source.Paths.LogFiles;
+                if (!string.IsNullOrEmpty(source.Paths.TempFiles))
+                    target.Paths.TempFiles = source.Paths.TempFiles;
+            }
+
+            // Merge ExecutableModules
+            if (source.ExecutableModules != null)
+            {
+                target.ExecutableModules = source.ExecutableModules;
+            }
+
+            // Merge Processing
+            if (source.Processing != null)
+            {
+                target.Processing = source.Processing;
+            }
+
+            // Merge Logging
+            if (source.Logging != null)
+            {
+                target.Logging = source.Logging;
+            }
+
+            // Merge Tables
+            if (source.Tables != null)
+            {
+                target.Tables = source.Tables;
+            }
+
+            // Merge Notifications
+            if (source.Notifications != null)
+            {
+                target.Notifications = source.Notifications;
+            }
+        }
+
+        /// <summary>
+        /// Finds the root project directory
+        /// </summary>
+        private string FindRootProjectDirectory()
+        {
             string assemblyDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "";
             string currentDir = assemblyDir;
             
-            for (int i = 0; i < 10; i++) // Limit search depth
+            for (int i = 0; i < 10; i++)
             {
-                // Check if this is the root project directory
                 bool hasCore = Directory.Exists(Path.Combine(currentDir, "Core"));
                 bool hasEtlModules = Directory.Exists(Path.Combine(currentDir, "ETL_CsvToDatabase")) ||
                                     Directory.Exists(Path.Combine(currentDir, "ETL_Excel")) ||
@@ -91,11 +194,7 @@ namespace DataForgeETL.Core
                 
                 if (hasCore && hasEtlModules)
                 {
-                    string rootConfigPath = Path.Combine(currentDir, "appsettings.json");
-                    if (File.Exists(rootConfigPath))
-                    {
-                        return rootConfigPath;
-                    }
+                    return currentDir;
                 }
                 
                 string? parentDir = Path.GetDirectoryName(currentDir);
@@ -105,16 +204,22 @@ namespace DataForgeETL.Core
                 currentDir = parentDir;
             }
 
-            throw new FileNotFoundException("appsettings.json not found in root project directory. Ensure the file exists in the directory containing Core and ETL modules.");
+            throw new DirectoryNotFoundException("Root project directory not found");
         }
 
         /// <summary>
-        /// Auto-detects the root directory based on the location of appsettings.json
+        /// Auto-detects the root directory based on the location of config folder
         /// </summary>
         private string AutoDetectRootDirectory()
         {
-            string configPath = GetConfigurationFilePath();
-            return Path.GetDirectoryName(configPath) ?? Environment.CurrentDirectory;
+            try
+            {
+                return FindRootProjectDirectory();
+            }
+            catch
+            {
+                return Environment.CurrentDirectory;
+            }
         }
 
         /// <summary>
@@ -344,7 +449,7 @@ namespace DataForgeETL.Core
         }
 
         /// <summary>
-        /// Saves the current configuration back to appsettings.json
+        /// Saves the current configuration back to split config files
         /// </summary>
         public void SaveConfiguration()
         {
@@ -353,23 +458,46 @@ namespace DataForgeETL.Core
                 if (_config == null)
                     throw new InvalidOperationException("No configuration to save");
 
-                string configPath = GetConfigurationFilePath();
-                string jsonContent = JsonConvert.SerializeObject(_config, Formatting.Indented);
+                string rootDir = FindRootProjectDirectory();
+                string configFolder = Path.Combine(rootDir, "config");
                 
-                // Create backup
-                string backupPath = configPath + ".backup";
-                if (File.Exists(configPath))
-                {
-                    File.Copy(configPath, backupPath, true);
-                }
+                if (!Directory.Exists(configFolder))
+                    throw new DirectoryNotFoundException($"Configuration folder not found: {configFolder}");
 
-                File.WriteAllText(configPath, jsonContent);
-                Console.WriteLine($"✓ Configuration saved to: {configPath}");
+                // Save each configuration section to its respective file
+                SaveConfigSection(configFolder, "environment.json", new { Environment = _config.Environment });
+                SaveConfigSection(configFolder, "database.json", new { Database = _config.Database });
+                SaveConfigSection(configFolder, "paths.json", new { Paths = _config.Paths });
+                SaveConfigSection(configFolder, "modules.json", new { ExecutableModules = _config.ExecutableModules });
+                SaveConfigSection(configFolder, "processing.json", new { Processing = _config.Processing });
+                SaveConfigSection(configFolder, "logging.json", new { Logging = _config.Logging });
+                SaveConfigSection(configFolder, "tables.json", new { Tables = _config.Tables });
+                SaveConfigSection(configFolder, "notifications.json", new { Notifications = _config.Notifications });
+
+                Console.WriteLine($"✓ Configuration saved to config folder: {configFolder}");
             }
             catch (Exception ex)
             {
                 throw new InvalidOperationException($"Failed to save configuration: {ex.Message}", ex);
             }
+        }
+
+        /// <summary>
+        /// Saves a configuration section to a specific file
+        /// </summary>
+        private void SaveConfigSection(string configFolder, string fileName, object configSection)
+        {
+            string filePath = Path.Combine(configFolder, fileName);
+            string jsonContent = JsonConvert.SerializeObject(configSection, Formatting.Indented);
+            
+            // Create backup
+            if (File.Exists(filePath))
+            {
+                string backupPath = filePath + ".backup";
+                File.Copy(filePath, backupPath, true);
+            }
+
+            File.WriteAllText(filePath, jsonContent);
         }
 
         /// <summary>

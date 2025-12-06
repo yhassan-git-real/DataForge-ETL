@@ -1,0 +1,7 @@
+{
+  "Tables": {
+    "ErrorTableName": "Error_table",
+    "SuccessLogTableName": "Success_table",
+    "AutoCreateLogTables": true
+  }
+}

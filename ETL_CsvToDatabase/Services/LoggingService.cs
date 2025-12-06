@@ -1,6 +1,7 @@
 // LoggingService.cs
 using Microsoft.Data.SqlClient;
 using ETL_CsvToDatabase.Core;
+using DataForgeETL.Core;
 using System.Data;
 
 namespace ETL_CsvToDatabase.Services
@@ -12,7 +13,7 @@ namespace ETL_CsvToDatabase.Services
         static LoggingService()
         {
             // Use UnifiedConfigurationManager to get the correct log path
-            var unifiedConfig = UnifiedConfigurationManager.Instance;
+            var unifiedConfig = DataForgeETL.Core.UnifiedConfigurationManager.Instance;
             LogDirectory = unifiedConfig.GetLogFilesPath();
             
             // Ensure Logs directory exists

@@ -1,0 +1,12 @@
+{
+  "Notifications": {
+    "Csv": {
+      "EnableProgressNotifications": false,
+      "ProgressNotificationInterval": 5000
+    },
+    "Excel": {
+      "EnableProgressNotifications": false,
+      "ProgressNotificationInterval": 500000
+    }
+  }
+}

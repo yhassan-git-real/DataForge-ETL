@@ -1,0 +1,9 @@
+{
+  "Logging": {
+    "Level": "Information",
+    "EnableFileLogging": true,
+    "EnableConsoleLogging": true,
+    "LogRetentionDays": 30,
+    "MaxLogFileSizeMB": 100
+  }
+}

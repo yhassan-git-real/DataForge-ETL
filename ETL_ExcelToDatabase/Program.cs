@@ -4,6 +4,9 @@ using Microsoft.Data.SqlClient;
 using ETL_ExcelToDatabase.Core;
 using ETL_ExcelToDatabase.Models;
 using ETL_ExcelToDatabase.Services;
+using DataForgeETL.Core;
+using UnifiedConfigurationManager = DataForgeETL.Core.UnifiedConfigurationManager;
+using DatabaseConfig = ETL_ExcelToDatabase.Core.DatabaseConfig;
 
 namespace ETL_ExcelToDatabase
 {
@@ -183,7 +186,7 @@ namespace ETL_ExcelToDatabase
             }
 
             // Get notification settings from unified configuration
-            var configManager = UnifiedConfigurationManager.Instance;
+            var configManager = DataForgeETL.Core.UnifiedConfigurationManager.Instance;
             var unifiedConfig = configManager.GetConfiguration();
             bool enableProgressNotifications = unifiedConfig.Notifications?.Excel?.EnableProgressNotifications ?? true;
             int progressNotificationInterval = unifiedConfig.Notifications?.Excel?.ProgressNotificationInterval ?? 50000;

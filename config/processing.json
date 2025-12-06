@@ -1,0 +1,15 @@
+{
+  "Processing": {
+    "BatchSize": 1000000,
+    "ValidateColumnMapping": true,
+    "DefaultSheetName": "null",
+    "SpecialSheetKeywords": [
+      "SUP",
+      "DEM"
+    ],
+    "ChunkSize": 10000,
+    "SaveInterval": 50000,
+    "MemoryCleanupInterval": 5,
+    "MaxDegreeOfParallelism": 1
+  }
+}
