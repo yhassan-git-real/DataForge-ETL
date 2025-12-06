@@ -130,40 +130,9 @@ namespace UniversalExcelTool.UI.ViewModels
 
                 var orchestrator = new ETLOrchestratorWithLogger(_processLogger, _progressReporter);
                 
-                // Step 1: Run Dynamic Table Manager first (for table configuration)
-                _processLogger.LogInfo("Step 1: Configuring dynamic tables...", "processor");
-                _progressReporter.ReportProgress(10, "Configuring dynamic tables...");
-                
-                bool configSuccess = await Task.Run(() => orchestrator.RunDynamicTableManagerAsync(null, _cancellationTokenSource.Token), _cancellationTokenSource.Token);
-                
-                if (!configSuccess)
-                {
-                    _processLogger.LogError("Dynamic Table Manager failed or was cancelled");
-                    _progressReporter.ReportError("Table configuration failed");
-                    _operationStateService.CompleteOperation(false, "Table configuration failed");
-                    
-                    Views.MainWindow.NotificationService?.ShowError(
-                        "Configuration Failed", 
-                        "Dynamic table configuration failed. Please check the logs.");
-                    return;
-                }
-                
-                // Check for cancellation after Dynamic Table Manager
-                if (_cancellationTokenSource.Token.IsCancellationRequested)
-                {
-                    _processLogger.LogWarning("Operation cancelled after table configuration");
-                    _progressReporter.ReportError("Operation cancelled");
-                    _operationStateService.CancelOperation();
-                    
-                    Views.MainWindow.NotificationService?.ShowWarning(
-                        "Processing Cancelled", 
-                        "Operation was cancelled during table configuration");
-                    return;
-                }
-                
-                // Step 2: Run CSV to Database processing
-                _processLogger.LogInfo("Step 2: Processing CSV files to database...", "processor");
-                _progressReporter.ReportProgress(40, "Processing CSV files...");
+                // Run CSV to Database processing (includes Dynamic Table Manager internally)
+                _processLogger.LogInfo("Processing CSV files to database...", "processor");
+                _progressReporter.ReportProgress(10, "Processing CSV files...");
 
                 bool success = await Task.Run(() => orchestrator.RunCsvToDatabaseAsync(null, _cancellationTokenSource.Token), _cancellationTokenSource.Token);
 
