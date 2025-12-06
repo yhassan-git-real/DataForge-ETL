@@ -237,9 +237,9 @@ namespace ETL_DynamicTableManager.Services
             
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                    CURRENT CONFIGURATION                      ║");
-            Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine("                    CURRENT CONFIGURATION                      ");
+            Console.WriteLine("=================================================================");
             Console.ResetColor();
             
             Console.WriteLine($"Temporary Table: {config.TempTableName}");

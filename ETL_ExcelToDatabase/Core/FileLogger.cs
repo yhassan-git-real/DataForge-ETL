@@ -18,7 +18,7 @@ namespace ETL_ExcelToDatabase.Services
             }
 
             _logFilePath = Path.Combine(logFolderPath,
-                $"Output_Log_{DateTime.Now:yyyyMMdd_HHmmss}.txt");
+                $"Output_Log_{DateTime.Now:yyyyMMdd}.txt");
         }
 
         public static void LogEntry(string message)

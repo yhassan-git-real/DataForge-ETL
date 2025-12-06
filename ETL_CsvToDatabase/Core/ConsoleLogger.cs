@@ -36,7 +36,7 @@ namespace ETL_CsvToDatabase.Core
 
             try
             {
-                string fileName = $"Console_output_csv2db_{DateTime.Now:yyyyMMdd_HHmmss}.log";
+                string fileName = $"Console_output_csv2db_{DateTime.Now:yyyyMMdd}.log";
                 string filePath = Path.Combine(_logFolderPath, fileName);
 
                 File.WriteAllText(filePath, _consoleOutput.ToString(), new UTF8Encoding(false));
@@ -102,12 +102,12 @@ namespace ETL_CsvToDatabase.Core
 
         public static void PrintHeader(string version)
         {
-            string header = $@"╔═══════════════════════════════════════════════════════════════╗
-║              ETL CSV TO DATABASE v{version}                ║
-║                                                               ║
-║  This tool imports CSV data into SQL Server database          ║
-║  with automatic schema detection and validation               ║
-╚═══════════════════════════════════════════════════════════════╝";
+            string header = $@"=================================================================
+              ETL CSV TO DATABASE v{version}
+=================================================================
+  This tool imports CSV data into SQL Server database
+  with automatic schema detection and validation
+=";
             Console.WriteLine(header);
             CaptureOutput(header);
         }

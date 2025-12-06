@@ -14,7 +14,9 @@ namespace ETL_ExcelToDatabase
     {
         static async Task Main()
         {
-            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            // Set UTF-8 encoding for proper emoji and box-drawing character display
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.InputEncoding = System.Text.Encoding.UTF8;
             Stopwatch totalTimer = new();
             totalTimer.Start();
             long totalRowsProcessed = 0;
@@ -86,9 +88,9 @@ namespace ETL_ExcelToDatabase
         private static void PrintConfigurationSummary(DatabaseConfig dbConfig, ProcessConfig processConfig)
         {
             Console.WriteLine();
-            Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                   ETL CONFIGURATION SUMMARY                   ║");
-            Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine("                   ETL CONFIGURATION SUMMARY");
+            Console.WriteLine("=================================================================");
             Console.WriteLine($"Database Server: {dbConfig.Server}");
             Console.WriteLine($"Database: {dbConfig.Database}");
             Console.WriteLine($"Authentication: {(dbConfig.IntegratedSecurity ? "Windows Authentication" : "SQL Server Authentication")}");
@@ -218,9 +220,9 @@ namespace ETL_ExcelToDatabase
             if (dynamicConfig?.CreateNewTable == true)
             {
                 Console.WriteLine();
-                Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-                Console.WriteLine("║                    TABLE CREATION SUMMARY                     ║");
-                Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+                Console.WriteLine("=================================================================");
+                Console.WriteLine("                    TABLE CREATION SUMMARY                     ");
+                Console.WriteLine("=================================================================");
                 ConsoleLogger.LogInfo("table", "Dynamic configuration indicates new table should be created");
                 
                 // Check if destination table exists

@@ -160,9 +160,9 @@ namespace ETL_DynamicTableManager.Configuration
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                    ETL CONFIGURATION SUMMARY                  ║");
-            Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine("                    ETL CONFIGURATION SUMMARY                  ");
+            Console.WriteLine("=================================================================");
             Console.ResetColor();
             
             Console.WriteLine($"Database Server: {config.DatabaseConfig.Server}");

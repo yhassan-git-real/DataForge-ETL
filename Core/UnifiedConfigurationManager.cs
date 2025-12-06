@@ -146,32 +146,34 @@ namespace DataForgeETL.Core
                     target.Paths.TempFiles = source.Paths.TempFiles;
             }
 
-            // Merge ExecutableModules
-            if (source.ExecutableModules != null)
+            // Merge ExecutableModules (only if source has actual data)
+            if (source.ExecutableModules != null && 
+                !string.IsNullOrEmpty(source.ExecutableModules.DynamicTableManager?.RelativePath))
             {
                 target.ExecutableModules = source.ExecutableModules;
             }
 
-            // Merge Processing
-            if (source.Processing != null)
+            // Merge Processing (only if source has actual data)
+            if (source.Processing != null && source.Processing.BatchSize > 0)
             {
                 target.Processing = source.Processing;
             }
 
-            // Merge Logging
-            if (source.Logging != null)
+            // Merge Logging (only if source has actual data)
+            if (source.Logging != null && !string.IsNullOrEmpty(source.Logging.Level))
             {
                 target.Logging = source.Logging;
             }
 
-            // Merge Tables
-            if (source.Tables != null)
+            // Merge Tables (only if source has actual data)
+            if (source.Tables != null && !string.IsNullOrEmpty(source.Tables.ErrorTableName))
             {
                 target.Tables = source.Tables;
             }
 
-            // Merge Notifications
-            if (source.Notifications != null)
+            // Merge Notifications (only if source has actual data - check if CSV or Excel notifications are configured)
+            if (source.Notifications != null && 
+                (source.Notifications.Csv != null || source.Notifications.Excel != null))
             {
                 target.Notifications = source.Notifications;
             }
@@ -512,9 +514,9 @@ namespace DataForgeETL.Core
             }
 
             Console.WriteLine();
-            Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                    UNIFIED CONFIGURATION                      ║");
-            Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine("                    UNIFIED CONFIGURATION");
+            Console.WriteLine("=================================================================");
             Console.WriteLine($"Root Directory: {_rootDirectory}");
             Console.WriteLine($"Environment: {_config.Environment.Environment}");
             Console.WriteLine($"Database Server: {_config.Database.Server}");

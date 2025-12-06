@@ -118,15 +118,15 @@ namespace DataForgeETL.UI.ViewModels
                 _progressReporter.Reset();
 
                 // Create file logger for this session
-                var logFileName = $"UI_ExcelProcessor_{DateTime.Now:yyyyMMdd_HHmmss}.txt";
+                var logFileName = $"UI_ExcelProcessor_{DateTime.Now:yyyyMMdd}.txt";
                 var logPath = Path.Combine(_configManager.GetLogFilesPath(), logFileName);
                 _currentLogFilePath = logPath;
                 _processLogger = new AvaloniaLogger(LogEntries, logPath);
 
                 var stopwatch = Stopwatch.StartNew();
-                _processLogger.LogInfo("═══════════════════════════════════════════", "processor");
+                _processLogger.LogInfo("=================================================================", "processor");
                 _processLogger.LogInfo($"Starting Excel Processor (ID: {_operationStateService.CurrentOperation?.OperationId:N})", "processor");
-                _processLogger.LogInfo("═══════════════════════════════════════════", "processor");
+                _processLogger.LogInfo("=================================================================", "processor");
 
                 var orchestrator = new ETLOrchestratorWithLogger(_processLogger, _progressReporter);
                 var options = new ETLProcessOptions

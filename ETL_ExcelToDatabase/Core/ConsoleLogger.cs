@@ -50,12 +50,12 @@ namespace ETL_ExcelToDatabase.Core
 
         public static void PrintHeader(string version)
         {
-            Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine($"║              ETL EXCEL TO DATABASE v{version}              ║");
-            Console.WriteLine("║                                                               ║");
-            Console.WriteLine("║  This tool imports Excel data into SQL Server database        ║");
-            Console.WriteLine("║  with automatic schema detection and validation               ║");
-            Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine($"              ETL EXCEL TO DATABASE v{version}");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine("  This tool imports Excel data into SQL Server database");
+            Console.WriteLine("  with automatic schema detection and validation");
+            Console.WriteLine("=================================================================");
         }
     }
 }

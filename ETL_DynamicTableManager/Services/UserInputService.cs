@@ -93,9 +93,9 @@ namespace ETL_DynamicTableManager.Services
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                   TEMPORARY TABLE CONFIGURATION               ║");
-            Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine("                   TEMPORARY TABLE CONFIGURATION               ");
+            Console.WriteLine("=================================================================");
             Console.ResetColor();
             
             Console.WriteLine("First, we need to create a temporary table for preloading data.");
@@ -111,9 +111,9 @@ namespace ETL_DynamicTableManager.Services
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                    TARGET TABLE CONFIGURATION                 ║");
-            Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine("                    TARGET TABLE CONFIGURATION                 ");
+            Console.WriteLine("=================================================================");
             Console.ResetColor();
             
             Console.WriteLine("Now we need to determine the destination for your data.");
@@ -142,9 +142,9 @@ namespace ETL_DynamicTableManager.Services
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                      TABLE TRUNCATION OPTION                  ║");
-            Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine("                      TABLE TRUNCATION OPTION                  ");
+            Console.WriteLine("=================================================================");
             Console.ResetColor();
             
             Console.WriteLine($"Target table: {tableName}");
@@ -187,9 +187,9 @@ namespace ETL_DynamicTableManager.Services
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                    CONFIGURATION SUMMARY                      ║");
-            Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine("                    CONFIGURATION SUMMARY                      ");
+            Console.WriteLine("=================================================================");
             Console.ResetColor();
             
             Console.WriteLine($"Temporary Table Name: {config.TempTableName}");
@@ -249,12 +249,12 @@ namespace ETL_DynamicTableManager.Services
             }
             
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║              ETL DYNAMIC TABLE MANAGER v1.0.0                ║");
-            Console.WriteLine("║                                                               ║");
-            Console.WriteLine("║  This tool will help you configure table names dynamically   ║");
-            Console.WriteLine("║  for your ETL process without modifying configuration files  ║");
-            Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine("              ETL DYNAMIC TABLE MANAGER v1.0.0                ");
+            Console.WriteLine("                                                               ");
+            Console.WriteLine("  This tool will help you configure table names dynamically   ");
+            Console.WriteLine("  for your ETL process without modifying configuration files  ");
+            Console.WriteLine("=================================================================");
             Console.ResetColor();
             Console.WriteLine();
         }
@@ -266,9 +266,9 @@ namespace ETL_DynamicTableManager.Services
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                    CONFIGURATION COMPLETE                     ║");
-            Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine("                    CONFIGURATION COMPLETE                     ");
+            Console.WriteLine("=================================================================");
             Console.ResetColor();
             
             Console.WriteLine($"Dynamic table configuration has been saved to:");

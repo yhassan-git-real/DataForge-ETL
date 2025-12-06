@@ -18,7 +18,7 @@ namespace DataForgeETL.Core
         public ETLOrchestrator()
         {
             _configManager = UnifiedConfigurationManager.Instance;
-            _logFilePath = Path.Combine(_configManager.GetLogFilesPath(), $"ETL_Orchestrator_{DateTime.Now:yyyyMMdd_HHmmss}.txt");
+            _logFilePath = Path.Combine(_configManager.GetLogFilesPath(), $"ETL_Orchestrator_{DateTime.Now:yyyyMMdd}.txt");
         }
 
         /// <summary>
@@ -99,9 +99,9 @@ namespace DataForgeETL.Core
         {
             options ??= new ETLProcessOptions();
             
-            LogInfo("═══════════════════════════════════════════════════════════════");
+            LogInfo("=================================================================");
             LogInfo("STEP 1: Dynamic Table Configuration");
-            LogInfo("═══════════════════════════════════════════════════════════════");
+            LogInfo("=================================================================");
 
             try
             {
@@ -126,9 +126,9 @@ namespace DataForgeETL.Core
         {
             options ??= new ETLProcessOptions();
             
-            LogInfo("═══════════════════════════════════════════════════════════════");
+            LogInfo("=================================================================");
             LogInfo("STEP 2: Excel Processing");
-            LogInfo("═══════════════════════════════════════════════════════════════");
+            LogInfo("=================================================================");
 
             try
             {
@@ -153,9 +153,9 @@ namespace DataForgeETL.Core
         {
             options ??= new ETLProcessOptions();
             
-            LogInfo("═══════════════════════════════════════════════════════════════");
+            LogInfo("=================================================================");
             LogInfo("STEP 3: Database Loading");
-            LogInfo("═══════════════════════════════════════════════════════════════");
+            LogInfo("=================================================================");
 
             try
             {
@@ -180,9 +180,9 @@ namespace DataForgeETL.Core
         {
             options ??= new ETLProcessOptions();
             
-            LogInfo("═══════════════════════════════════════════════════════════════");
+            LogInfo("=================================================================");
             LogInfo("CSV to Database Processing");
-            LogInfo("═══════════════════════════════════════════════════════════════");
+            LogInfo("=================================================================");
 
             try
             {
@@ -224,10 +224,10 @@ namespace DataForgeETL.Core
                 {
                     Console.WriteLine();
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-                    Console.WriteLine("║                    USER INPUT REQUIRED                       ║");
-                    Console.WriteLine("║               Opening in separate window...                   ║");
-                    Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+                    Console.WriteLine("=================================================================");
+                    Console.WriteLine("                    USER INPUT REQUIRED                       ");
+                    Console.WriteLine("               Opening in separate window...                   ");
+                    Console.WriteLine("=================================================================");
                     Console.ResetColor();
 
                     var startInfo = new ProcessStartInfo(executablePath, arguments)
@@ -337,12 +337,12 @@ namespace DataForgeETL.Core
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                DATAFORGE ETL ORCHESTRATOR v2.0.0             ║");
-            Console.WriteLine("║                                                               ║");
-            Console.WriteLine("║  Centralized ETL Process Management with Unified Config      ║");
-            Console.WriteLine("║  Location-agnostic • Self-contained • Environment-friendly   ║");
-            Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine("                DATAFORGE ETL ORCHESTRATOR v2.0.0             ");
+            Console.WriteLine("                                                               ");
+            Console.WriteLine("  Centralized ETL Process Management with Unified Config      ");
+            Console.WriteLine("  Location-agnostic • Self-contained • Environment-friendly   ");
+            Console.WriteLine("=================================================================");
             Console.ResetColor();
             Console.WriteLine();
         }
@@ -354,9 +354,9 @@ namespace DataForgeETL.Core
         {
             Console.WriteLine();
             Console.ForegroundColor = success ? ConsoleColor.Green : ConsoleColor.Red;
-            Console.WriteLine("╔═══════════════════════════════════════════════════════════════╗");
-            Console.WriteLine($"║                   {(success ? "PROCESS COMPLETED SUCCESSFULLY" : "PROCESS COMPLETED WITH ERRORS")}              ║");
-            Console.WriteLine("╚═══════════════════════════════════════════════════════════════╝");
+            Console.WriteLine("=================================================================");
+            Console.WriteLine($"                   {(success ? "PROCESS COMPLETED SUCCESSFULLY" : "PROCESS COMPLETED WITH ERRORS")}              ");
+            Console.WriteLine("=================================================================");
             Console.ResetColor();
             
             Console.WriteLine($"Total Execution Time: {duration:hh\\:mm\\:ss}");

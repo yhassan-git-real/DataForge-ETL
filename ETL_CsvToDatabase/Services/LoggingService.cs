@@ -85,7 +85,7 @@ namespace ETL_CsvToDatabase.Services
                     $"Error in file '{fileName}': {errorType} - {reason}");
                 
                 // Also write to error log file with detailed information
-                string errorLogFile = $"errorlog_csv2db_{DateTime.Now:yyyyMMdd_HHmmss}.log";
+                string errorLogFile = $"errorlog_csv2db_{DateTime.Now:yyyyMMdd}.log";
                 string detailedErrorLog = $"================== ERROR LOG =================={Environment.NewLine}" +
                     $"Timestamp: {DateTime.Now:yyyy-MM-dd HH:mm:ss}{Environment.NewLine}" +
                     $"File Name: {fileName}{Environment.NewLine}" +
@@ -156,7 +156,7 @@ namespace ETL_CsvToDatabase.Services
                     $"in {processingTime:N2} seconds ({rowsPerSecond:N0} rows/sec)");
                 
                 // Also write to success log file with detailed information
-                string successLogFile = $"successlog_csv2db_{DateTime.Now:yyyyMMdd_HHmmss}.log";
+                string successLogFile = $"successlog_csv2db_{DateTime.Now:yyyyMMdd}.log";
                 string detailedSuccessLog = $"================== SUCCESS LOG =================={Environment.NewLine}" +
                     $"Timestamp: {DateTime.Now:yyyy-MM-dd HH:mm:ss}{Environment.NewLine}" +
                     $"Status: SUCCESS{Environment.NewLine}" +

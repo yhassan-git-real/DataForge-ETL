@@ -20,7 +20,7 @@ namespace ETL_Excel.Modules
                     // Check and create log directory only once during initialization
                     EnsureLogDirectoryExists();
 
-                    string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                    string timestamp = DateTime.Now.ToString("yyyyMMdd");
                     _successLogPath = Path.Combine(_config.LogSettings.LogFolderPath, $"successlog_{timestamp}.txt");
                     _errorLogPath = Path.Combine(_config.LogSettings.LogFolderPath, $"errorlog_{timestamp}.txt");
 

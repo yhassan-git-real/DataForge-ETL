@@ -13,7 +13,9 @@ namespace ETL_Excel
     {
         static async Task Main(string[] args)
         {
+            // Set UTF-8 encoding for proper emoji and box-drawing character display
             Console.OutputEncoding = Encoding.UTF8;
+            Console.InputEncoding = Encoding.UTF8;
 
             var config = ConfigurationManager.GetConfig();
             var consoleLogger = new ConsoleLogger(config.LogSettings.LogFolderPath);

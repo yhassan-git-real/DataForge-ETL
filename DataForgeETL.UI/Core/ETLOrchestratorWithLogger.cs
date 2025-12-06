@@ -108,9 +108,9 @@ namespace DataForgeETL.UI.ViewModels
         {
             options ??= new ETLProcessOptions();
 
-            _logger.LogInfo("═══════════════════════════════════════════════════════════════", "etl");
+            _logger.LogInfo("=================================================================", "etl");
             _logger.LogInfo("STEP 1: Dynamic Table Configuration", "etl");
-            _logger.LogInfo("═══════════════════════════════════════════════════════════════", "etl");
+            _logger.LogInfo("=================================================================", "etl");
 
             try
             {
@@ -135,9 +135,9 @@ namespace DataForgeETL.UI.ViewModels
         {
             options ??= new ETLProcessOptions();
 
-            _logger.LogInfo("═══════════════════════════════════════════════════════════════", "etl");
+            _logger.LogInfo("=================================================================", "etl");
             _logger.LogInfo("STEP 2: Excel Processing", "etl");
-            _logger.LogInfo("═══════════════════════════════════════════════════════════════", "etl");
+            _logger.LogInfo("=================================================================", "etl");
 
             try
             {
@@ -162,9 +162,9 @@ namespace DataForgeETL.UI.ViewModels
         {
             options ??= new ETLProcessOptions();
 
-            _logger.LogInfo("═══════════════════════════════════════════════════════════════", "etl");
+            _logger.LogInfo("=================================================================", "etl");
             _logger.LogInfo("STEP 3: Database Loading", "etl");
-            _logger.LogInfo("═══════════════════════════════════════════════════════════════", "etl");
+            _logger.LogInfo("=================================================================", "etl");
 
             try
             {
@@ -189,9 +189,9 @@ namespace DataForgeETL.UI.ViewModels
         {
             options ??= new ETLProcessOptions();
 
-            _logger.LogInfo("═══════════════════════════════════════════════════════════════", "etl");
+            _logger.LogInfo("=================================================================", "etl");
             _logger.LogInfo("CSV to Database Processing", "etl");
-            _logger.LogInfo("═══════════════════════════════════════════════════════════════", "etl");
+            _logger.LogInfo("=================================================================", "etl");
 
             try
             {
@@ -361,12 +361,12 @@ namespace DataForgeETL.UI.ViewModels
         /// </summary>
         private void DisplayHeader()
         {
-            _logger.LogInfo("╔═══════════════════════════════════════════════════════════════╗", "header");
-            _logger.LogInfo("║           DATAFORGE ETL - Modern ETL Manager v2.0.0          ║", "header");
-            _logger.LogInfo("║                                                               ║", "header");
-            _logger.LogInfo("║  Centralized ETL Process Management with Unified Config      ║", "header");
-            _logger.LogInfo("║  Location-agnostic • Self-contained • Environment-friendly   ║", "header");
-            _logger.LogInfo("╔═══════════════════════════════════════════════════════════════╗", "header");
+            _logger.LogInfo("=================================================================", "header");
+            _logger.LogInfo("           DATAFORGE ETL - Modern ETL Manager v2.0.0          ", "header");
+            _logger.LogInfo("                                                               ", "header");
+            _logger.LogInfo("  Centralized ETL Process Management with Unified Config      ", "header");
+            _logger.LogInfo("  Location-agnostic • Self-contained • Environment-friendly   ", "header");
+            _logger.LogInfo("=================================================================", "header");
         }
     }
 }

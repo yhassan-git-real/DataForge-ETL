@@ -32,7 +32,7 @@ namespace ETL_Excel.Modules
 
         public void SaveFinalOutput()
         {
-            string fileName = $"Console_output_log_{DateTime.Now:yyyyMMdd_HHmmss}.txt";
+            string fileName = $"Console_output_log_{DateTime.Now:yyyyMMdd}.txt";
             string filePath = Path.Combine(_logFolderPath, fileName);
 
             File.WriteAllText(filePath, _consoleOutput.ToString(), new UTF8Encoding(false));

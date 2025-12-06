@@ -118,15 +118,15 @@ namespace DataForgeETL.UI.ViewModels
                 _progressReporter.Reset();
 
                 // Create file logger for this session
-                var logFileName = $"UI_DatabaseLoader_{DateTime.Now:yyyyMMdd_HHmmss}.txt";
+                var logFileName = $"UI_DatabaseLoader_{DateTime.Now:yyyyMMdd}.txt";
                 var logPath = Path.Combine(_configManager.GetLogFilesPath(), logFileName);
                 _currentLogFilePath = logPath;
                 _processLogger = new AvaloniaLogger(LogEntries, logPath);
 
                 var stopwatch = Stopwatch.StartNew();
-                _processLogger.LogInfo("═══════════════════════════════════════════", "loader");
+                _processLogger.LogInfo("=================================================================", "loader");
                 _processLogger.LogInfo($"Starting Database Loader (ID: {_operationStateService.CurrentOperation?.OperationId:N})", "loader");
-                _processLogger.LogInfo("═══════════════════════════════════════════", "loader");
+                _processLogger.LogInfo("=================================================================", "loader");
 
                 var orchestrator = new ETLOrchestratorWithLogger(_processLogger, _progressReporter);
                 var options = new ETLProcessOptions

@@ -5,32 +5,28 @@
       "Name": "Dynamic Table Manager",
       "Description": "Configures dynamic table names for ETL process",
       "Order": 1,
-      "Arguments": "",
-      "ExecutablePath": ""
+      "Arguments": ""
     },
     "ExcelProcessor": {
       "RelativePath": "ETL_Excel\\bin\\Release\\net8.0\\win-x64\\ETL_Excel.exe",
       "Name": "Excel Processor",
       "Description": "Processes and splits Excel files",
       "Order": 2,
-      "Arguments": "--non-interactive",
-      "ExecutablePath": ""
+      "Arguments": "--non-interactive"
     },
     "DatabaseLoader": {
       "RelativePath": "ETL_ExcelToDatabase\\bin\\Release\\net8.0\\win-x64\\ETL_ExcelToDatabase.exe",
       "Name": "Database Loader",
       "Description": "Loads processed data into database",
       "Order": 3,
-      "Arguments": "",
-      "ExecutablePath": ""
+      "Arguments": ""
     },
     "CsvToDatabase": {
       "RelativePath": "ETL_CsvToDatabase\\bin\\Release\\net8.0\\win-x64\\ETL_CsvToDatabase.exe",
       "Name": "CSV to Database",
       "Description": "Loads CSV files directly into database",
       "Order": 4,
-      "Arguments": "",
-      "ExecutablePath": ""
+      "Arguments": ""
     }
   }
 }
