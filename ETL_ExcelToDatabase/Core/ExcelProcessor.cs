@@ -147,7 +147,7 @@ namespace ETL_ExcelToDatabase.Core
             // Convert Excel values to appropriate string representations
             return value switch
             {
-                DateTime dt => dt.ToString("yyyy-MM-dd HH:mm:ss"),
+                DateTime dt => dt.ToString("yyyy-MM-dd HH:mm:ss.fff"),
                 double d => d.ToString(System.Globalization.CultureInfo.InvariantCulture),
                 decimal dec => dec.ToString(System.Globalization.CultureInfo.InvariantCulture),
                 bool b => b.ToString(),

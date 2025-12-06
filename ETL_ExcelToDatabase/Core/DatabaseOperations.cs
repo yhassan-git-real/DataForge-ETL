@@ -86,7 +86,7 @@ namespace ETL_ExcelToDatabase.Core
 
             if (!result.IsValid)
             {
-                string errorMessage = $"Validation Report ({DateTime.Now:yyyy-MM-dd HH:mm:ss}):\n" +
+                string errorMessage = $"Validation Report ({DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}):\n" +
                     $"Total Source Columns: {result.TempColumnCount}\n" +
                     $"Total Destination Columns: {result.DestColumnCount}\n" +
                     $"Matched Columns: {result.MatchedColumns.Count}\n\n" +
@@ -104,7 +104,7 @@ namespace ETL_ExcelToDatabase.Core
                     errorMessage);
 
                 // Single error message in console
-                ConsoleLogger.LogError($"Error in file '{fileName}': ProcessError - Validation Report ({DateTime.Now:yyyy-MM-dd HH:mm:ss})\n" +
+                ConsoleLogger.LogError($"Error in file '{fileName}': ProcessError - Validation Report ({DateTime.Now:yyyy-MM-dd HH:mm:ss.fff})\n" +
                     $"Total Source Columns: {result.TempColumnCount}\n" +
                     $"Total Destination Columns: {result.DestColumnCount}\n" +
                     $"Matched Columns: {result.MatchedColumns.Count}");

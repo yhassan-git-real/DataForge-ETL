@@ -30,7 +30,7 @@ namespace DataForgeETL.UI.Models
         /// <summary>
         /// Gets a formatted string representation of the log entry
         /// </summary>
-        public string FormattedMessage => $"[{Timestamp:HH:mm:ss}] [{Level}] {Message}";
+        public string FormattedMessage => $"[{Timestamp:HH:mm:ss.fff}] [{Level}] {Message}";
 
         /// <summary>
         /// Gets the emoji icon for the log level

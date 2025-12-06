@@ -76,7 +76,7 @@ namespace ETL_CsvToDatabase.Core
 
         public static void LogInfo(string type, string message)
         {
-            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
             string emoji = Emojis.GetValueOrDefault(type, "ℹ️");
             string output = $"{emoji} [{timestamp}] {message}";
             Console.WriteLine(output);
@@ -95,7 +95,7 @@ namespace ETL_CsvToDatabase.Core
         public static void LogProgress(string message, long current, long total)
         {
             double percentage = (double)current / total * 100;
-            string output = $"🔄 [{DateTime.Now:yyyy-MM-dd HH:mm:ss}] {message} - Progress: {percentage:F2}% ({current:N0}/{total:N0})";
+            string output = $"🔄 [{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}] {message} - Progress: {percentage:F2}% ({current:N0}/{total:N0})";
             Console.WriteLine(output);
             CaptureOutput(output);
         }

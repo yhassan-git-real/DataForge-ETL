@@ -41,7 +41,7 @@ namespace DataForgeETL.UI.Services
 
         private void Log(string message, ConsoleColor color, string level, string category)
         {
-            var timestamp = DateTime.Now.ToString("HH:mm:ss");
+            var timestamp = DateTime.Now.ToString("HH:mm:ss.fff");
             var emoji = GetEmoji(level);
             
             Console.ForegroundColor = color;

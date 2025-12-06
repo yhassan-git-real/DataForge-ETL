@@ -57,7 +57,7 @@ namespace DataForgeETL.UI.Services
                 // Write log header
                 WriteToFile($"═══════════════════════════════════════════════════════════");
                 WriteToFile($"  DataForge ETL - UI Session Log");
-                WriteToFile($"  Started: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+                WriteToFile($"  Started: {DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}");
                 WriteToFile($"  Log File: {logFilePath}");
                 WriteToFile($"═══════════════════════════════════════════════════════════\n");
             }
@@ -264,7 +264,7 @@ namespace DataForgeETL.UI.Services
             {
                 lock (_fileLock)
                 {
-                    var timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    var timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
                     var logLine = $"[{timestamp}] {message}";
                     _logBuffer.AppendLine(logLine);
 
@@ -296,7 +296,7 @@ namespace DataForgeETL.UI.Services
                 return;
 
             WriteToFile($"\n═══════════════════════════════════════════════════════════");
-            WriteToFile($"  Session Ended: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+            WriteToFile($"  Session Ended: {DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}");
             WriteToFile($"═══════════════════════════════════════════════════════════");
         }
     }

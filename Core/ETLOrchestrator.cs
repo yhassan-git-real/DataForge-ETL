@@ -369,7 +369,7 @@ namespace DataForgeETL.Core
         /// </summary>
         private void LogInfo(string message)
         {
-            string logMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} [INFO] {message}";
+            string logMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} [INFO] {message}";
             Console.WriteLine(logMessage);
             AppendToLogFile(logMessage);
         }
@@ -379,7 +379,7 @@ namespace DataForgeETL.Core
         /// </summary>
         private void LogSuccess(string message)
         {
-            string logMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} [SUCCESS] {message}";
+            string logMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} [SUCCESS] {message}";
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(logMessage);
             Console.ResetColor();
@@ -391,7 +391,7 @@ namespace DataForgeETL.Core
         /// </summary>
         private void LogError(string message)
         {
-            string logMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} [ERROR] {message}";
+            string logMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} [ERROR] {message}";
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(logMessage);
             Console.ResetColor();
@@ -403,7 +403,7 @@ namespace DataForgeETL.Core
         /// </summary>
         private void LogWarning(string message)
         {
-            string logMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} [WARNING] {message}";
+            string logMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} [WARNING] {message}";
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(logMessage);
             Console.ResetColor();
