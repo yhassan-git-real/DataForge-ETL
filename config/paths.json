@@ -4,7 +4,6 @@
     "InputCsvFiles": "E:\\Files\\CSV",
     "OutputExcelFiles": "E:\\Files\\ExcelFiles",
     "SpecialExcelFiles": "E:\\Files\\Special_Sheets_Excels",
-    "LogFiles": "F:\\Projects-Hub\\DataForge ETL\\Logs",
-    "TempFiles": "F:\\Projects-Hub\\DataForge ETL\\Temp"
+    "LogFiles": "F:\\Projects-Hub\\DataForge ETL\\Logs"
   }
 }
