@@ -58,6 +58,7 @@ namespace UniversalExcelTool.UI.ViewModels
         private readonly IOperationStateService _operationStateService;
         private AvaloniaLogger? _processLogger;
         private CancellationTokenSource? _cancellationTokenSource;
+        private string? _currentLogFilePath;
 
         public DashboardViewModel()
         {
@@ -129,12 +130,6 @@ namespace UniversalExcelTool.UI.ViewModels
                     
                     using var connection = new SqlConnection(builder.ConnectionString);
                     connection.Open();
-                    
-                    // Test query
-                    using var command = new SqlCommand("SELECT @@VERSION", connection);
-                    var version = command.ExecuteScalar()?.ToString();
-                    string serverInfo = version != null ? version.Substring(0, Math.Min(50, version.Length)) : "Connected";
-                    _logger.LogInfo($"SQL Server: {serverInfo}", "database");
                 });
 
                 IsDatabaseConnected = true;
@@ -195,9 +190,10 @@ namespace UniversalExcelTool.UI.ViewModels
                 BusyMessage = "Running Complete ETL Process...";
                 _progressReporter.Reset();
                 
-                // Create file logger for this ETL session
+                // Create file logger for this session
                 var logFileName = $"UI_CompleteETL_{DateTime.Now:yyyyMMdd_HHmmss}.txt";
                 var logPath = Path.Combine(_configManager.GetLogFilesPath(), logFileName);
+                _currentLogFilePath = logPath;
                 _processLogger = new AvaloniaLogger(LogEntries, logPath);
                 
                 var stopwatch = Stopwatch.StartNew();
@@ -312,7 +308,42 @@ namespace UniversalExcelTool.UI.ViewModels
         private void ClearLogs()
         {
             LogEntries.Clear();
-            _logger.LogInfo("Log cleared", "system");
+        }
+
+        [RelayCommand]
+        private void ViewLog()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(_currentLogFilePath) && File.Exists(_currentLogFilePath))
+                {
+                    var startInfo = new ProcessStartInfo
+                    {
+                        FileName = _currentLogFilePath,
+                        UseShellExecute = true
+                    };
+                    Process.Start(startInfo);
+                }
+                else
+                {
+                    var logFolderPath = _configManager.GetLogFilesPath();
+                    if (!Directory.Exists(logFolderPath))
+                    {
+                        Directory.CreateDirectory(logFolderPath);
+                    }
+                    var startInfo = new ProcessStartInfo
+                    {
+                        FileName = "explorer.exe",
+                        Arguments = logFolderPath,
+                        UseShellExecute = true
+                    };
+                    Process.Start(startInfo);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Failed to open log: {ex.Message}");
+            }
         }
     }
 }

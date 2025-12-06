@@ -110,7 +110,7 @@ namespace UniversalExcelTool.UI.Services
                 lowerMessage.Contains("configuration loaded") || lowerMessage.Contains("temp table:") ||
                 lowerMessage.Contains("destination table:") || lowerMessage.Contains("error table:") ||
                 lowerMessage.Contains("success table:") || lowerMessage.Contains("column mapping:") ||
-                lowerMessage.Contains("sql server version:") || lowerMessage.Contains("microsoft sql") ||
+
                 lowerMessage.Contains("working directory:") || lowerMessage.Contains("batch size:") ||
                 lowerMessage.Contains("validate column mapping:") || lowerMessage.Contains("authentication:"))
                 return false;

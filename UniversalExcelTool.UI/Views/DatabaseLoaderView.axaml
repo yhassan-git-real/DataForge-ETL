@@ -47,20 +47,6 @@
                                        Margin="0,3,0,0"/>
                         </StackPanel>
                     </StackPanel>
-
-                    <!-- Operation Status -->
-                    <Border IsVisible="{Binding IsOperationRunning}"
-                            Background="#FEF3C7"
-                            BorderBrush="#F59E0B"
-                            BorderThickness="1"
-                            CornerRadius="6"
-                            Padding="10,8"
-                            Margin="0,6,0,8">
-                        <TextBlock Text="{Binding OperationStatusMessage}"
-                                   FontSize="11"
-                                   Foreground="#92400E"
-                                   TextWrapping="Wrap"/>
-                    </Border>
                     
                     <!-- Action Buttons -->
                     <Grid ColumnDefinitions="Auto,Auto" Margin="0,6,0,0">
@@ -199,8 +185,8 @@
                     Margin="0,0,0,0">
                 <Grid RowDefinitions="Auto,*">
                     <!-- Log Header -->
-                    <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="15,10,15,10">
-                        <StackPanel Orientation="Horizontal" Spacing="8">
+                    <Grid Grid.Row="0" ColumnDefinitions="*,Auto,Auto,Auto" Margin="15,10,15,10">
+                        <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="8">
                             <TextBlock Text="📜" FontSize="16" VerticalAlignment="Center"/>
                             <TextBlock Text="Live Logs" 
                                        FontSize="16" 
@@ -213,12 +199,62 @@
                                 BorderBrush="#D1D5DB"
                                 BorderThickness="1"
                                 CornerRadius="4"
-                                Padding="8,4">
+                                Padding="8,4"
+                                Margin="0,0,8,0">
                             <TextBlock Text="{Binding LogEntries.Count, StringFormat='({0} entries)'}"
                                        FontSize="11"
                                        FontWeight="Medium"
                                        Foreground="#6B7280"/>
                         </Border>
+                        <Button Grid.Column="2"
+                                Command="{Binding ViewLogCommand}"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Height="32"
+                                MinWidth="90"
+                                Padding="16,0"
+                                Background="#F9FAFB"
+                                Foreground="#374151"
+                                BorderBrush="#E5E7EB"
+                                BorderThickness="1"
+                                CornerRadius="6"
+                                FontSize="12"
+                                FontWeight="Medium"
+                                Margin="0,0,8,0"
+                                Cursor="Hand">
+                            <TextBlock Text="View Log"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <Button.Styles>
+                                <Style Selector="Button:pointerover">
+                                    <Setter Property="Background" Value="#F3F4F6"/>
+                                </Style>
+                            </Button.Styles>
+                        </Button>
+                        <Button Grid.Column="3"
+                                Command="{Binding ClearLogsCommand}"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Height="32"
+                                MinWidth="90"
+                                Padding="16,0"
+                                Background="#F9FAFB"
+                                Foreground="#374151"
+                                BorderBrush="#E5E7EB"
+                                BorderThickness="1"
+                                CornerRadius="6"
+                                FontSize="12"
+                                FontWeight="Medium"
+                                Cursor="Hand">
+                            <TextBlock Text="Clear Logs"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <Button.Styles>
+                                <Style Selector="Button:pointerover">
+                                    <Setter Property="Background" Value="#F3F4F6"/>
+                                </Style>
+                            </Button.Styles>
+                        </Button>
                     </Grid>
 
                     <!-- Log Table -->
@@ -227,7 +263,7 @@
                             BorderThickness="0,1,0,0"
                             Background="#FAFBFC"
                             CornerRadius="0,0,8,8"
-                            Height="200">
+                            Height="300">
                         <Grid RowDefinitions="Auto,*">
                             <!-- Table Header -->
                             <Border Grid.Row="0" 

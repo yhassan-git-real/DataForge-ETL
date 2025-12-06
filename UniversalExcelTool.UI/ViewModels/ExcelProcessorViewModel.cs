@@ -42,6 +42,7 @@ namespace UniversalExcelTool.UI.ViewModels
         private readonly IOperationStateService _operationStateService;
         private AvaloniaLogger? _processLogger;
         private CancellationTokenSource? _cancellationTokenSource;
+        private string? _currentLogFilePath;
 
         public ExcelProcessorViewModel()
         {
@@ -62,8 +63,6 @@ namespace UniversalExcelTool.UI.ViewModels
                 CanCancelOperation = true;
                 OperationStatusMessage = currentOp.GetStatusMessage();
             }
-            
-            _logger.LogInfo("Excel Processor view opened", "processor");
         }
 
         private void OnOperationStateChanged(object? sender, OperationStateChangedEventArgs e)
@@ -121,6 +120,7 @@ namespace UniversalExcelTool.UI.ViewModels
                 // Create file logger for this session
                 var logFileName = $"UI_ExcelProcessor_{DateTime.Now:yyyyMMdd_HHmmss}.txt";
                 var logPath = Path.Combine(_configManager.GetLogFilesPath(), logFileName);
+                _currentLogFilePath = logPath;
                 _processLogger = new AvaloniaLogger(LogEntries, logPath);
 
                 var stopwatch = Stopwatch.StartNew();
@@ -211,6 +211,48 @@ namespace UniversalExcelTool.UI.ViewModels
             {
                 _logger.LogWarning("Cancelling Excel Processor operation...");
                 _cancellationTokenSource.Cancel();
+            }
+        }
+
+        [RelayCommand]
+        private void ClearLogs()
+        {
+            LogEntries.Clear();
+        }
+
+        [RelayCommand]
+        private void ViewLog()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(_currentLogFilePath) && File.Exists(_currentLogFilePath))
+                {
+                    var startInfo = new ProcessStartInfo
+                    {
+                        FileName = _currentLogFilePath,
+                        UseShellExecute = true
+                    };
+                    Process.Start(startInfo);
+                }
+                else
+                {
+                    var logFolderPath = _configManager.GetLogFilesPath();
+                    if (!Directory.Exists(logFolderPath))
+                    {
+                        Directory.CreateDirectory(logFolderPath);
+                    }
+                    var startInfo = new ProcessStartInfo
+                    {
+                        FileName = "explorer.exe",
+                        Arguments = logFolderPath,
+                        UseShellExecute = true
+                    };
+                    Process.Start(startInfo);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Failed to open log: {ex.Message}");
             }
         }
 

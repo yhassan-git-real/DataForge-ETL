@@ -109,7 +109,6 @@ namespace UniversalExcelTool.UI.ViewModels
             _fileBrowserService = new FileBrowserService();
             _appSettingsPath = Path.Combine(_configManager.GetRootDirectory(), "appsettings.json");
             
-            _logger.LogInfo("Settings view opened", "settings");
             LoadSettings();
         }
 

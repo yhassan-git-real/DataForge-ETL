@@ -42,6 +42,7 @@ namespace UniversalExcelTool.UI.ViewModels
         private readonly IOperationStateService _operationStateService;
         private AvaloniaLogger? _processLogger;
         private CancellationTokenSource? _cancellationTokenSource;
+        private string? _currentLogFilePath;
 
         public CsvToDatabaseViewModel()
         {
@@ -62,8 +63,6 @@ namespace UniversalExcelTool.UI.ViewModels
                 CanCancelOperation = true;
                 OperationStatusMessage = currentOp.GetStatusMessage();
             }
-            
-            _logger.LogInfo("CSV to Database view opened", "processor");
         }
 
         private void OnOperationStateChanged(object? sender, OperationStateChangedEventArgs e)
@@ -121,6 +120,7 @@ namespace UniversalExcelTool.UI.ViewModels
                 // Create file logger for this session
                 var logFileName = $"UI_CsvToDatabase_{DateTime.Now:yyyyMMdd_HHmmss}.txt";
                 var logPath = Path.Combine(_configManager.GetLogFilesPath(), logFileName);
+                _currentLogFilePath = logPath;
                 _processLogger = new AvaloniaLogger(LogEntries, logPath);
 
                 var stopwatch = Stopwatch.StartNew();
@@ -218,7 +218,49 @@ namespace UniversalExcelTool.UI.ViewModels
         private void ClearLogs()
         {
             LogEntries.Clear();
-            _logger.LogInfo("Log cleared", "system");
+        }
+
+        [RelayCommand]
+        private void ViewLog()
+        {
+            try
+            {
+                // If a process is running or has been started, open the current log file
+                if (!string.IsNullOrEmpty(_currentLogFilePath) && File.Exists(_currentLogFilePath))
+                {
+                    // Open the log file with the default text editor
+                    var startInfo = new ProcessStartInfo
+                    {
+                        FileName = _currentLogFilePath,
+                        UseShellExecute = true
+                    };
+                    Process.Start(startInfo);
+                }
+                else
+                {
+                    // No process started yet, open the logs folder in File Explorer
+                    var logFolderPath = _configManager.GetLogFilesPath();
+                    
+                    // Ensure the folder exists
+                    if (!Directory.Exists(logFolderPath))
+                    {
+                        Directory.CreateDirectory(logFolderPath);
+                    }
+                    
+                    // Open folder in File Explorer
+                    var startInfo = new ProcessStartInfo
+                    {
+                        FileName = "explorer.exe",
+                        Arguments = logFolderPath,
+                        UseShellExecute = true
+                    };
+                    Process.Start(startInfo);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Failed to open log: {ex.Message}");
+            }
         }
 
         private void OnProgressChanged()

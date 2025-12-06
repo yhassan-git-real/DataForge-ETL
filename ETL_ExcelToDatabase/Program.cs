@@ -158,9 +158,6 @@ namespace ETL_ExcelToDatabase
             {
                 await connection.OpenAsync();
                 Console.WriteLine("✓ Database connection successful!");
-                await using SqlCommand command = new("SELECT @@VERSION", connection);
-                object? version = await command.ExecuteScalarAsync();
-                ConsoleLogger.LogInfo("database", $"SQL Server Version: {version}");
             }
             catch (SqlException)
             {
