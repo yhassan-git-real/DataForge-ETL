@@ -1,6 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace UniversalExcelTool.UI.ViewModels
+namespace DataForgeETL.UI.ViewModels
 {
     /// <summary>
     /// Base class for all ViewModels in the application

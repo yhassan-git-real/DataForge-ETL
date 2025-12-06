@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace UniversalExcelTool.UI.Services
+namespace DataForgeETL.UI.Services
 {
     /// <summary>
     /// Abstraction for user input that works in both console and UI modes

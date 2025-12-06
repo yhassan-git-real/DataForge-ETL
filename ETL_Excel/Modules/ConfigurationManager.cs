@@ -1,4 +1,4 @@
-﻿using ETL_Excel.Models;
+using ETL_Excel.Models;
 using ETL_Excel.Core;
 using Newtonsoft.Json;
 using System;

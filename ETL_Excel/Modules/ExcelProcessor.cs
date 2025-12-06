@@ -1,4 +1,4 @@
-﻿using ETL_Excel.Models;
+using ETL_Excel.Models;
 using ClosedXML.Excel;
 using ExcelDataReader;
 using System;

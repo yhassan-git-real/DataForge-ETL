@@ -3,7 +3,7 @@ using Avalonia.Media;
 using System;
 using System.Globalization;
 
-namespace UniversalExcelTool.UI.Converters
+namespace DataForgeETL.UI.Converters
 {
     /// <summary>
     /// Converts boolean to notification background color (success = green, failure = red)

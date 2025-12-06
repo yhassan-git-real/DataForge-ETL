@@ -5,10 +5,10 @@ using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
 using System.Reflection;
 
-namespace UniversalExcelTool.Core
+namespace DataForgeETL.Core
 {
     /// <summary>
-    /// Centralized configuration manager for the Universal Excel Tool
+    /// Centralized configuration manager for DataForge ETL
     /// Handles dynamic path resolution and environment-agnostic configuration
     /// </summary>
     public class UnifiedConfigurationManager

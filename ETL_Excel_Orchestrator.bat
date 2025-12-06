@@ -5,10 +5,10 @@ echo ========================================
 echo.
 
 REM Check if self-contained executable exists and republish
-if exist "Core\bin\Release\net8.0\win-x64\publish\UniversalExcelTool.exe" (
+if exist "Core\bin\Release\net8.0\win-x64\publish\DataForgeETL.exe" (
     echo Self-contained executable found. Cleaning and republishing...
-    dotnet clean "Core\UniversalExcelTool.csproj" -c Release
-    dotnet publish "Core\UniversalExcelTool.csproj" -c Release -r win-x64 --self-contained
+    dotnet clean "Core\DataForgeETL.csproj" -c Release
+    dotnet publish "Core\DataForgeETL.csproj" -c Release -r win-x64 --self-contained
     if errorlevel 1 (
         echo Publish failed!
         pause
@@ -18,7 +18,7 @@ if exist "Core\bin\Release\net8.0\win-x64\publish\UniversalExcelTool.exe" (
     echo.
 ) else (
     echo Self-contained executable not found. Publishing...
-    dotnet publish "Core\UniversalExcelTool.csproj" -c Release -r win-x64 --self-contained
+    dotnet publish "Core\DataForgeETL.csproj" -c Release -r win-x64 --self-contained
     if errorlevel 1 (
         echo Publish failed!
         pause
@@ -30,7 +30,7 @@ if exist "Core\bin\Release\net8.0\win-x64\publish\UniversalExcelTool.exe" (
 
 REM Run the orchestrator
 echo Starting Excel ETL Orchestrator...
-"Core\bin\Release\net8.0\win-x64\publish\UniversalExcelTool.exe"
+"Core\bin\Release\net8.0\win-x64\publish\DataForgeETL.exe"
 
 echo.
 if %errorlevel% equ 0 (

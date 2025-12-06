@@ -5,13 +5,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using UniversalExcelTool.UI.Models;
-using UniversalExcelTool.UI.Services;
-using UniversalExcelTool.Core;
+using DataForgeETL.UI.Models;
+using DataForgeETL.UI.Services;
+using DataForgeETL.Core;
 using Newtonsoft.Json;
 using Microsoft.Data.SqlClient;
 
-namespace UniversalExcelTool.UI.ViewModels
+namespace DataForgeETL.UI.ViewModels
 {
     /// <summary>
     /// View model for dynamic table configuration - Step-by-step wizard matching console app

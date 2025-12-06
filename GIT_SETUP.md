@@ -1,4 +1,4 @@
-# Git Setup Instructions for Universal Excel Tool
+# Git Setup Instructions for DataForge ETL
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ You should see output like: `git version 2.x.x.windows.x`
 
 ```powershell
 # Navigate to project directory
-cd F:\Projects-Hub\Universal_Excel_Tool
+cd F:\Projects-Hub\DataForge_ETL
 
 # Initialize Git repository
 git init
@@ -82,7 +82,7 @@ git status
 
 ```powershell
 # Create the first commit
-git commit -m "Initial commit: Universal Excel Tool v2.0.0
+git commit -m "Initial commit: DataForge ETL v2.0.0
 
 - Core orchestration layer with unified configuration
 - Dynamic Table Manager for runtime table mapping
@@ -101,7 +101,7 @@ git commit -m "Initial commit: Universal Excel Tool v2.0.0
 
 1. **Create a new repository on GitHub:**
    - Go to https://github.com/new
-   - Name: `Universal_Excel_Tool`
+   - Name: `DataForge_ETL`
    - Description: "Enterprise ETL system for Excel to SQL Server"
    - Visibility: Public or Private
    - **DO NOT** initialize with README, .gitignore, or license (we already have these)
@@ -109,7 +109,7 @@ git commit -m "Initial commit: Universal Excel Tool v2.0.0
 2. **Connect and push:**
    ```powershell
    # Add remote repository
-   git remote add origin https://github.com/YOUR_USERNAME/Universal_Excel_Tool.git
+   git remote add origin https://github.com/YOUR_USERNAME/DataForge_ETL.git
    
    # Push to GitHub
    git push -u origin main
@@ -120,12 +120,12 @@ git commit -m "Initial commit: Universal Excel Tool v2.0.0
 1. **Create a new repository in Azure DevOps:**
    - Navigate to your Azure DevOps project
    - Go to Repos → Files
-   - Initialize repository: `Universal_Excel_Tool`
+   - Initialize repository: `DataForge_ETL`
 
 2. **Connect and push:**
    ```powershell
    # Add remote repository
-   git remote add origin https://dev.azure.com/YOUR_ORG/YOUR_PROJECT/_git/Universal_Excel_Tool
+   git remote add origin https://dev.azure.com/YOUR_ORG/YOUR_PROJECT/_git/DataForge_ETL
    
    # Push to Azure DevOps
    git push -u origin main
@@ -135,14 +135,14 @@ git commit -m "Initial commit: Universal Excel Tool v2.0.0
 
 1. **Create a new project on GitLab:**
    - Go to https://gitlab.com/projects/new
-   - Project name: `Universal_Excel_Tool`
+   - Project name: `DataForge_ETL`
    - Visibility: Private/Internal/Public
    - **Uncheck** "Initialize repository with a README"
 
 2. **Connect and push:**
    ```powershell
    # Add remote repository
-   git remote add origin https://gitlab.com/YOUR_USERNAME/Universal_Excel_Tool.git
+   git remote add origin https://gitlab.com/YOUR_USERNAME/DataForge_ETL.git
    
    # Push to GitLab
    git push -u origin main
@@ -363,14 +363,14 @@ git commit -m "chore: configure Git LFS for Excel files"
 
 ```powershell
 # Clone to another location
-git clone F:\Projects-Hub\Universal_Excel_Tool F:\Backups\Universal_Excel_Tool_Backup
+git clone F:\Projects-Hub\DataForge_ETL F:\Backups\DataForge_ETL_Backup
 ```
 
 ### Restore from backup
 
 ```powershell
 # Copy .git directory from backup
-Copy-Item -Path "F:\Backups\Universal_Excel_Tool_Backup\.git" -Destination "F:\Projects-Hub\Universal_Excel_Tool\" -Recurse -Force
+Copy-Item -Path "F:\Backups\DataForge_ETL_Backup\.git" -Destination "F:\Projects-Hub\DataForge_ETL\" -Recurse -Force
 
 # Reset to last commit
 git reset --hard HEAD

@@ -1,6 +1,6 @@
 using System;
 
-namespace UniversalExcelTool.UI.Models
+namespace DataForgeETL.UI.Models
 {
     /// <summary>
     /// Represents information about a running operation

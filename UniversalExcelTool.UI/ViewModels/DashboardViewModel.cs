@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using UniversalExcelTool.UI.Models;
-using UniversalExcelTool.UI.Services;
-using UniversalExcelTool.Core;
+using DataForgeETL.UI.Models;
+using DataForgeETL.UI.Services;
+using DataForgeETL.Core;
 using Microsoft.Data.SqlClient;
 
-namespace UniversalExcelTool.UI.ViewModels
+namespace DataForgeETL.UI.ViewModels
 {
     /// <summary>
     /// Dashboard view model showing system overview and quick actions

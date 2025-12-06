@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using Avalonia.Threading;
-using UniversalExcelTool.UI.Models;
+using DataForgeETL.UI.Models;
 
-namespace UniversalExcelTool.UI.Services
+namespace DataForgeETL.UI.Services
 {
     /// <summary>
     /// Avalonia UI implementation of IUILogger with optional file logging
@@ -56,7 +56,7 @@ namespace UniversalExcelTool.UI.Services
 
                 // Write log header
                 WriteToFile($"═══════════════════════════════════════════════════════════");
-                WriteToFile($"  Universal Excel Tool - UI Session Log");
+                WriteToFile($"  DataForge ETL - UI Session Log");
                 WriteToFile($"  Started: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
                 WriteToFile($"  Log File: {logFilePath}");
                 WriteToFile($"═══════════════════════════════════════════════════════════\n");
@@ -98,8 +98,8 @@ namespace UniversalExcelTool.UI.Services
                 message.Contains("▬") || message.Contains("▼") || message.Contains("▲"))
                 return false;
 
-            // Exclude: Universal Excel Tool headers and branding
-            if (lowerMessage.Contains("universal excel tool") || lowerMessage.Contains("modern etl manager") ||
+            // Exclude: DataForge ETL headers and branding
+            if (lowerMessage.Contains("dataforge etl") || lowerMessage.Contains("modern etl manager") ||
                 lowerMessage.Contains("centralized etl process") || lowerMessage.Contains("location-agnostic") ||
                 lowerMessage.Contains("self-contained") || lowerMessage.Contains("environment-friendly"))
                 return false;

@@ -1,8 +1,8 @@
 using System;
 using Avalonia.Threading;
-using UniversalExcelTool.UI.Models;
+using DataForgeETL.UI.Models;
 
-namespace UniversalExcelTool.UI.Services
+namespace DataForgeETL.UI.Services
 {
     /// <summary>
     /// Avalonia UI implementation of IProgressReporter

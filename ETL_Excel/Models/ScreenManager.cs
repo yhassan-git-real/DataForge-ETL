@@ -1,4 +1,4 @@
-﻿// Create new file: Modules/ScreenManager.cs
+// Create new file: Modules/ScreenManager.cs
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;

@@ -1,9 +1,9 @@
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
-using UniversalExcelTool.UI.Models;
-using UniversalExcelTool.UI.Services;
+using DataForgeETL.UI.Models;
+using DataForgeETL.UI.Services;
 
-namespace UniversalExcelTool.UI.ViewModels
+namespace DataForgeETL.UI.ViewModels
 {
     /// <summary>
     /// View model for About dialog
@@ -17,7 +17,7 @@ namespace UniversalExcelTool.UI.ViewModels
         private string _buildDate = "October 2025";
 
         [ObservableProperty]
-        private string _description = "Modern desktop ETL manager for Universal Excel Tool with Avalonia UI";
+        private string _description = "Modern desktop ETL manager for DataForge ETL with Avalonia UI";
 
         public AboutViewModel()
         {

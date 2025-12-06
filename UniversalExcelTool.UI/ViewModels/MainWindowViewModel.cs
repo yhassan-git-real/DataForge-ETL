@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using UniversalExcelTool.UI.Services;
+using DataForgeETL.UI.Services;
 
-namespace UniversalExcelTool.UI.ViewModels
+namespace DataForgeETL.UI.ViewModels
 {
     /// <summary>
     /// Main window view model that manages navigation and overall app state
@@ -26,7 +26,7 @@ namespace UniversalExcelTool.UI.ViewModels
         private ViewModelBase? _currentViewModel;
 
         [ObservableProperty]
-        private string _title = "Universal Excel Tool - Modern ETL Manager";
+        private string _title = "DataForge ETL - Modern ETL Manager";
 
         [ObservableProperty]
         private string _currentPageTitle = "Dashboard";

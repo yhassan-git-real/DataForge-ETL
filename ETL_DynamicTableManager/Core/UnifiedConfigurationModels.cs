@@ -1,7 +1,7 @@
 namespace ETL_DynamicTableManager.Core
 {
     /// <summary>
-    /// Unified configuration model for the entire Universal Excel Tool system
+    /// Unified configuration model for the entire DataForge ETL system
     /// </summary>
     public class UnifiedConfig
     {

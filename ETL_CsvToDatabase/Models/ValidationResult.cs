@@ -1,4 +1,4 @@
-﻿// ValidationResult.cs
+// ValidationResult.cs
 using System.Text;
 using System.Collections.Generic;
 

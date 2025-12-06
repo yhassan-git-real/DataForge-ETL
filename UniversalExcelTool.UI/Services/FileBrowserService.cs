@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace UniversalExcelTool.UI.Services
+namespace DataForgeETL.UI.Services
 {
     public class FileBrowserService
     {

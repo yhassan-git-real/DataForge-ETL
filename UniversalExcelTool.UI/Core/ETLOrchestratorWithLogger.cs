@@ -3,10 +3,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using UniversalExcelTool.Core;
-using UniversalExcelTool.UI.Services;
+using DataForgeETL.Core;
+using DataForgeETL.UI.Services;
 
-namespace UniversalExcelTool.UI.ViewModels
+namespace DataForgeETL.UI.ViewModels
 {
     /// <summary>
     /// Enhanced ETL Orchestrator that integrates with UI logger and progress reporter
@@ -362,7 +362,7 @@ namespace UniversalExcelTool.UI.ViewModels
         private void DisplayHeader()
         {
             _logger.LogInfo("╔═══════════════════════════════════════════════════════════════╗", "header");
-            _logger.LogInfo("║       UNIVERSAL EXCEL TOOL - Modern ETL Manager v2.0.0       ║", "header");
+            _logger.LogInfo("║           DATAFORGE ETL - Modern ETL Manager v2.0.0          ║", "header");
             _logger.LogInfo("║                                                               ║", "header");
             _logger.LogInfo("║  Centralized ETL Process Management with Unified Config      ║", "header");
             _logger.LogInfo("║  Location-agnostic • Self-contained • Environment-friendly   ║", "header");

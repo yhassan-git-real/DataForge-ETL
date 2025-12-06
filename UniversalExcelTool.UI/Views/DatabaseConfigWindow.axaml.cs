@@ -1,9 +1,9 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using UniversalExcelTool.UI.ViewModels;
+using DataForgeETL.UI.ViewModels;
 
-namespace UniversalExcelTool.UI.Views
+namespace DataForgeETL.UI.Views
 {
     public partial class DatabaseConfigWindow : Window
     {

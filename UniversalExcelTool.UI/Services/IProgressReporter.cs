@@ -1,6 +1,6 @@
 using System;
 
-namespace UniversalExcelTool.UI.Services
+namespace DataForgeETL.UI.Services
 {
     /// <summary>
     /// Abstraction for progress reporting

@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Text;
 using Microsoft.Data.SqlClient;
 using ETL_ExcelToDatabase.Core;

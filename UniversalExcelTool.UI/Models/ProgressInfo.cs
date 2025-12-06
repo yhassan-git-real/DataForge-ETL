@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace UniversalExcelTool.UI.Models
+namespace DataForgeETL.UI.Models
 {
     /// <summary>
     /// Represents progress information for ETL operations

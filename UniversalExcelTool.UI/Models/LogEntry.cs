@@ -1,6 +1,6 @@
 using System;
 
-namespace UniversalExcelTool.UI.Models
+namespace DataForgeETL.UI.Models
 {
     /// <summary>
     /// Represents a single log entry in the application

@@ -2,7 +2,7 @@ using Avalonia.Data.Converters;
 using System;
 using System.Globalization;
 
-namespace UniversalExcelTool.UI.Converters
+namespace DataForgeETL.UI.Converters
 {
     /// <summary>
     /// Converter to check if a string value equals a parameter string (for RadioButton binding)

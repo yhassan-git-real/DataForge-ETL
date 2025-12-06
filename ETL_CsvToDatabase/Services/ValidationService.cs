@@ -1,4 +1,4 @@
-﻿// ValidationService.cs
+// ValidationService.cs
 using System.Data;
 using Microsoft.Data.SqlClient;
 using ETL_CsvToDatabase.Models;

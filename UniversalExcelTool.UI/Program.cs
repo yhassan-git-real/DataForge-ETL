@@ -1,7 +1,7 @@
 using Avalonia;
 using System;
 
-namespace UniversalExcelTool.UI;
+namespace DataForgeETL.UI;
 
 class Program
 {
@@ -36,7 +36,7 @@ class Program
     private static void RunConsoleMode(string[] args)
     {
         Console.WriteLine("Running in console mode...");
-        Console.WriteLine("For console operations, please use the standalone Core/UniversalExcelTool.exe");
+        Console.WriteLine("For console operations, please use the standalone Core/DataForgeETL.exe");
         Console.WriteLine("This UI application is designed for interactive desktop use.");
         Console.WriteLine();
         Console.WriteLine("Press any key to exit...");

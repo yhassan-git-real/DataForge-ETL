@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using UniversalExcelTool.Core;
+using DataForgeETL.Core;
 
-namespace UniversalExcelTool
+namespace DataForgeETL
 {
     /// <summary>
     /// Main entry point for the Universal Excel Tool with unified configuration

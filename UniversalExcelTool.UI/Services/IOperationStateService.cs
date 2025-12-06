@@ -1,7 +1,7 @@
 using System;
-using UniversalExcelTool.UI.Models;
+using DataForgeETL.UI.Models;
 
-namespace UniversalExcelTool.UI.Services
+namespace DataForgeETL.UI.Services
 {
     /// <summary>
     /// Interface for managing global operation state across the application

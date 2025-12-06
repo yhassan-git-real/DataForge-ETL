@@ -12,7 +12,7 @@ pause
 REM Build Core module
 echo.
 echo [1/6] Building Core...
-dotnet build "Core\UniversalExcelTool.csproj" -c Release
+dotnet build "Core\DataForgeETL.csproj" -c Release
 if errorlevel 1 (
     echo Core build failed!
     pause

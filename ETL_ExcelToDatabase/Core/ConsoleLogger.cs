@@ -1,4 +1,4 @@
-﻿// ConsoleLogger.cs
+// ConsoleLogger.cs
 using System.Collections.Concurrent;
 
 namespace ETL_ExcelToDatabase.Core

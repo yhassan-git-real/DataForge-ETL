@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
-namespace UniversalExcelTool.UI.Views
+namespace DataForgeETL.UI.Views
 {
     public partial class AboutWindow : Window
     {

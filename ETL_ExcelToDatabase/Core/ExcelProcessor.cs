@@ -1,4 +1,4 @@
-﻿using ExcelDataReader;
+using ExcelDataReader;
 using System.Data;
 using System.Text;
 using Microsoft.Data.SqlClient;

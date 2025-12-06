@@ -43,7 +43,7 @@ Once you have the ICO file:
 ## Temporary Workaround
 
 If you don't have an ICO file yet, the application will build without an icon. You can:
-1. Comment out the `<ApplicationIcon>` line in `UniversalExcelTool.UI.csproj`
+1. Comment out the `<ApplicationIcon>` line in `DataForgeETL.UI.csproj`
 2. Add the icon later and rebuild
 
 The SVG file is included for future reference and can be used for:

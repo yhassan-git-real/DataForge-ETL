@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace UniversalExcelTool.UI.Views
+namespace DataForgeETL.UI.Views
 {
     public partial class DashboardView : UserControl
     {

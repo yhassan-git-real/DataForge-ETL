@@ -1,8 +1,8 @@
 using System;
 using System.Threading;
-using UniversalExcelTool.UI.Models;
+using DataForgeETL.UI.Models;
 
-namespace UniversalExcelTool.UI.Services
+namespace DataForgeETL.UI.Services
 {
     /// <summary>
     /// Singleton service for managing global operation state across the application

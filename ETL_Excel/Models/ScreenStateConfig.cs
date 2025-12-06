@@ -1,4 +1,4 @@
-﻿// Create new file: Models/ScreenStateConfig.cs
+// Create new file: Models/ScreenStateConfig.cs
 namespace ETL_Excel.Models
 {
     public class ScreenStateConfig

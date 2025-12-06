@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using UniversalExcelTool.UI.ViewModels;
+using DataForgeETL.UI.ViewModels;
 
-namespace UniversalExcelTool.UI.Services
+namespace DataForgeETL.UI.Services
 {
     /// <summary>
     /// Service for navigating between views in the application

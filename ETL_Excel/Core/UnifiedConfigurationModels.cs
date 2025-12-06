@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace ETL_Excel.Core
 {
     /// <summary>
-    /// Unified configuration model for the entire Universal Excel Tool system
+    /// Unified configuration model for the entire DataForge ETL system
     /// </summary>
     public class UnifiedConfig
     {

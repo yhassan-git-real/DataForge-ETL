@@ -1,10 +1,10 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using UniversalExcelTool.UI.ViewModels;
-using UniversalExcelTool.UI.Views;
+using DataForgeETL.UI.ViewModels;
+using DataForgeETL.UI.Views;
 
-namespace UniversalExcelTool.UI;
+namespace DataForgeETL.UI;
 
 public partial class App : Application
 {

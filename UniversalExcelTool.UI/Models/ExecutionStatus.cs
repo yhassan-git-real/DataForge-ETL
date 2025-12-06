@@ -1,6 +1,6 @@
 using System;
 
-namespace UniversalExcelTool.UI.Models
+namespace DataForgeETL.UI.Models
 {
     /// <summary>
     /// Represents the execution status of an ETL process

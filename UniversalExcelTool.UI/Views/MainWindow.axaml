@@ -1,11 +1,11 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:UniversalExcelTool.UI.ViewModels"
-        xmlns:views="using:UniversalExcelTool.UI.Views"
+        xmlns:vm="using:DataForgeETL.UI.ViewModels"
+        xmlns:views="using:DataForgeETL.UI.Views"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="700"
-        x:Class="UniversalExcelTool.UI.Views.MainWindow"
+        x:Class="DataForgeETL.UI.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Title="{Binding Title}"
         Width="1200" Height="700"
@@ -199,7 +199,7 @@
                         </MenuItem.Icon>
                     </MenuItem>
                     <Separator/>
-                    <MenuItem Header="_About Universal Excel Tool" Command="{Binding ShowAboutCommand}">
+                    <MenuItem Header="_About DataForge ETL" Command="{Binding ShowAboutCommand}">
                         <MenuItem.Icon>
                             <TextBlock Text="ℹ️" FontSize="14"/>
                         </MenuItem.Icon>
@@ -638,7 +638,7 @@
                                Spacing="18"
                                VerticalAlignment="Center">
                         <!-- Copyright -->
-                        <TextBlock Text="© 2025 Universal Excel Tool. All rights reserved." 
+                        <TextBlock Text="© 2025 DataForge ETL. All rights reserved." 
                                    FontSize="11" 
                                    FontWeight="Medium"
                                    Foreground="#6B7280"

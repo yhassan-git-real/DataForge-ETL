@@ -1,8 +1,8 @@
-# Git Initialization Script for Universal Excel Tool
+# Git Initialization Script for DataForge ETL
 # Created: October 24, 2025
 
 Write-Host "================================================================" -ForegroundColor Cyan
-Write-Host "       Universal Excel Tool - Git Setup Script                 " -ForegroundColor Cyan
+Write-Host "       DataForge ETL - Git Setup Script                 " -ForegroundColor Cyan
 Write-Host "================================================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -137,7 +137,7 @@ if ($stageFiles -ne "n" -and $stageFiles -ne "N") {
     if ($makeCommit -ne "n" -and $makeCommit -ne "N") {
         Write-Host "Creating initial commit..." -ForegroundColor Yellow
         
-        $commitMessage = "Initial commit: Universal Excel Tool v2.0.0
+        $commitMessage = "Initial commit: DataForge ETL v2.0.0
 
 - Core orchestration layer with unified configuration
 - Dynamic Table Manager for runtime table mapping
@@ -175,21 +175,21 @@ if ($setupRemote -eq "y" -or $setupRemote -eq "Y") {
     switch ($choice) {
         "1" {
             $username = Read-Host "Enter your GitHub username"
-            $repoName = Read-Host "Enter repository name (default: Universal_Excel_Tool)"
-            if ([string]::IsNullOrWhiteSpace($repoName)) { $repoName = "Universal_Excel_Tool" }
+            $repoName = Read-Host "Enter repository name (default: DataForge_ETL)"
+            if ([string]::IsNullOrWhiteSpace($repoName)) { $repoName = "DataForge_ETL" }
             $remoteUrl = "https://github.com/$username/$repoName.git"
         }
         "2" {
             $org = Read-Host "Enter your Azure DevOps organization"
             $project = Read-Host "Enter your project name"
-            $repoName = Read-Host "Enter repository name (default: Universal_Excel_Tool)"
-            if ([string]::IsNullOrWhiteSpace($repoName)) { $repoName = "Universal_Excel_Tool" }
+            $repoName = Read-Host "Enter repository name (default: DataForge_ETL)"
+            if ([string]::IsNullOrWhiteSpace($repoName)) { $repoName = "DataForge_ETL" }
             $remoteUrl = "https://dev.azure.com/$org/$project/_git/$repoName"
         }
         "3" {
             $username = Read-Host "Enter your GitLab username"
-            $repoName = Read-Host "Enter repository name (default: Universal_Excel_Tool)"
-            if ([string]::IsNullOrWhiteSpace($repoName)) { $repoName = "Universal_Excel_Tool" }
+            $repoName = Read-Host "Enter repository name (default: DataForge_ETL)"
+            if ([string]::IsNullOrWhiteSpace($repoName)) { $repoName = "DataForge_ETL" }
             $remoteUrl = "https://gitlab.com/$username/$repoName.git"
         }
         "4" {

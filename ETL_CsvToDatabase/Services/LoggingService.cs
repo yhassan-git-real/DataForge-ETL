@@ -1,4 +1,4 @@
-﻿// LoggingService.cs
+// LoggingService.cs
 using Microsoft.Data.SqlClient;
 using ETL_CsvToDatabase.Core;
 using System.Data;

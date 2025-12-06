@@ -1,7 +1,7 @@
 using System;
-using UniversalExcelTool.UI.Models;
+using DataForgeETL.UI.Models;
 
-namespace UniversalExcelTool.UI.Services
+namespace DataForgeETL.UI.Services
 {
     /// <summary>
     /// Console implementation of IUILogger for fallback/testing

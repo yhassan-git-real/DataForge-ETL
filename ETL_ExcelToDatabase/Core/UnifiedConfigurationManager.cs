@@ -8,7 +8,7 @@ using Microsoft.Data.SqlClient;
 namespace ETL_ExcelToDatabase.Core
 {
     /// <summary>
-    /// Centralized configuration manager for the Universal Excel Tool
+    /// Centralized configuration manager for the DataForge ETL
     /// Handles dynamic path resolution and environment-agnostic configuration
     /// </summary>
     public class UnifiedConfigurationManager

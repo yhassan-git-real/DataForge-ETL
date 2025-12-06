@@ -1,7 +1,7 @@
-# Universal Excel Tool - Self-Contained Deployment
+# DataForge ETL - Self-Contained Deployment
 
 ## Overview
-This Universal Excel Tool has been configured for **self-contained deployment** on Windows x64 platforms. This means the applications can run on any Windows machine without requiring .NET runtime installation.
+This DataForge ETL has been configured for **self-contained deployment** on Windows x64 platforms. This means the applications can run on any Windows machine without requiring .NET runtime installation.
 
 ## What's Changed
 
@@ -71,9 +71,9 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 ## File Structure After Build
 
 ```
-Universal_Excel_Tool/
+DataForge_ETL/
 ├── Core/bin/Release/net8.0/win-x64/publish/
-│   └── UniversalExcelTool.exe                    (~85MB)
+│   └── DataForgeETL.exe                    (~85MB)
 ├── ETL_Excel/bin/Release/net8.0/win-x64/publish/
 │   └── ETL_Excel.exe                             (~95MB)
 ├── ETL_ExcelToDatabase/bin/Release/net8.0/win-x64/publish/
@@ -86,7 +86,7 @@ Universal_Excel_Tool/
 ## Deployment Instructions
 
 ### For End Users
-1. Copy the entire `Universal_Excel_Tool` folder to target machine
+1. Copy the entire `DataForge_ETL` folder to target machine
 2. Ensure `appsettings.json` is configured with correct paths
 3. Run `start_unified_etl.bat` or individual application batch files
 4. **No .NET installation required!**

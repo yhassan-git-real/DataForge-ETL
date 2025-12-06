@@ -4,16 +4,16 @@ using System.IO;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using UniversalExcelTool.UI.Models;
-using UniversalExcelTool.UI.Services;
-using UniversalExcelTool.UI.Views;
-using UniversalExcelTool.Core;
+using DataForgeETL.UI.Models;
+using DataForgeETL.UI.Services;
+using DataForgeETL.UI.Views;
+using DataForgeETL.Core;
 using Newtonsoft.Json.Linq;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Microsoft.Data.SqlClient;
 
-namespace UniversalExcelTool.UI.ViewModels
+namespace DataForgeETL.UI.ViewModels
 {
     /// <summary>
     /// View model for application settings and configuration

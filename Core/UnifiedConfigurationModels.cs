@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 
-namespace UniversalExcelTool.Core
+namespace DataForgeETL.Core
 {
     /// <summary>
-    /// Unified configuration model for the entire Universal Excel Tool system
+    /// Unified configuration model for the entire DataForge ETL system
     /// </summary>
     public class UnifiedConfig
     {

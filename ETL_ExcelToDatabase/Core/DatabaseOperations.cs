@@ -1,4 +1,4 @@
-﻿using System.Data;
+using System.Data;
 using System.Linq;
 using System.Text;
 using Microsoft.Data.SqlClient;

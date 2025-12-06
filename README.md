@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 Universal Excel Tool
+# 🚀 DataForge ETL
 
 ### Enterprise-Grade ETL System for Excel & CSV to SQL Server
 
@@ -89,7 +89,7 @@ Auto-detects root directory from config
 </tr>
 </table>
 
-### ⚙️ **Why Choose Universal Excel Tool?**
+### ⚙️ **Why Choose DataForge ETL?**
 
 ```
 ✨ Self-Contained Deployment  →  No external runtime dependencies required
@@ -196,7 +196,7 @@ graph TB
 notepad appsettings.json
 
 # 3️⃣ Launch the desktop UI
-.\UniversalExcelTool.UI.bat
+.\DataForgeETL.UI.bat
 ```
 
 ### 💻 **Option 2: Command Line**
@@ -266,8 +266,8 @@ notepad appsettings.json
 
 ```powershell
 # 1. Clone the repository
-git clone https://github.com/yourusername/Universal_Excel_Tool.git
-cd Universal_Excel_Tool
+git clone https://github.com/yourusername/DataForge_ETL.git
+cd DataForge_ETL
 
 # 2. Build all modules in Release mode
 .\Build_All_Release.bat
@@ -277,7 +277,7 @@ notepad appsettings.json
 # Update: Database.Server, Database.Database, Paths
 
 # 4. Run the application
-.\UniversalExcelTool.UI.bat  # Desktop UI
+.\DataForgeETL.UI.bat  # Desktop UI
 # OR
 .\ETL_Excel_Orchestrator.bat  # Excel workflow CLI
 ```
@@ -289,8 +289,8 @@ notepad appsettings.json
 
 ```powershell
 # 1. Clone and navigate
-git clone https://github.com/yourusername/Universal_Excel_Tool.git
-cd Universal_Excel_Tool
+git clone https://github.com/yourusername/DataForge_ETL.git
+cd DataForge_ETL
 
 # 2. Build self-contained (includes .NET runtime)
 .\Build_All_SelfContained.bat
@@ -330,7 +330,7 @@ dotnet build -c Release
 cd ..\ETL_CsvToDatabase
 dotnet build -c Release
 
-cd ..\UniversalExcelTool.UI
+cd ..\DataForgeETL.UI
 dotnet build -c Release
 ```
 
@@ -487,7 +487,7 @@ The entire application is configured through a single centralized configuration 
 
 ```powershell
 # Launch the modern desktop interface
-.\UniversalExcelTool.UI.bat
+.\DataForgeETL.UI.bat
 ```
 
 **🎨 Modern cross-platform UI with MVVM architecture**
@@ -586,21 +586,21 @@ cd ..\ETL_CsvToDatabase
 **Core Orchestrator Options**
 ```powershell
 # Skip table configuration
-UniversalExcelTool.exe --skip-dynamic-config
+DataForgeETL.exe --skip-dynamic-config
 
 # Continue on errors
-UniversalExcelTool.exe --continue-on-error
+DataForgeETL.exe --continue-on-error
 
 # Show configuration
-UniversalExcelTool.exe --show-config
+DataForgeETL.exe --show-config
 
 # Set custom root directory
-UniversalExcelTool.exe --root-directory "CUSTOM_PATH"
+DataForgeETL.exe --root-directory "CUSTOM_PATH"
 
 # Run specific module only
-UniversalExcelTool.exe --dynamic-table-only
-UniversalExcelTool.exe --excel-only
-UniversalExcelTool.exe --database-only
+DataForgeETL.exe --dynamic-table-only
+DataForgeETL.exe --excel-only
+DataForgeETL.exe --database-only
 ```
 
 </td>
@@ -632,7 +632,7 @@ ETL_CsvToDatabase.exe --has-header true
 ## 📂 Project Structure
 
 ```
-Universal_Excel_Tool/
+DataForge_ETL/
 │
 ├── 📄 appsettings.json                    # ⭐ Centralized configuration
 ├── 📄 dynamic_table_config.json           # Runtime table mappings
@@ -641,7 +641,7 @@ Universal_Excel_Tool/
 ├── 🚀 Build_All_SelfContained.bat         # Build self-contained deployment
 ├── 🎮 ETL_Excel_Orchestrator.bat          # Excel workflow launcher
 ├── 🎮 ETL_CSV_Orchestrator.bat            # CSV workflow launcher
-├── 🖥️ UniversalExcelTool.UI.bat           # Desktop UI launcher
+├── 🖥️ DataForgeETL.UI.bat           # Desktop UI launcher
 │
 ├── 📁 Core/                                # 🎯 Orchestrator & Configuration
 │   ├── Program.cs                          # CLI entry point
@@ -699,7 +699,7 @@ Universal_Excel_Tool/
 │   └── Models/
 │       └── ConfigurationModels.cs          # Data models
 │
-├── 📁 UniversalExcelTool.UI/               # 🖥️ Avalonia Desktop Application
+├── 📁 DataForgeETL.UI/               # 🖥️ Avalonia Desktop Application
 │   ├── App.axaml                           # Application root
 │   ├── ViewModels/
 │   │   ├── MainWindowViewModel.cs          # Main window logic
@@ -717,7 +717,7 @@ Universal_Excel_Tool/
 │   │   ├── IUILogger.cs                    # Logging interface
 │   │   ├── AvaloniaLogger.cs               # UI logger
 │   │   └── INavigationService.cs           # Navigation
-│   └── UniversalExcelTool.UI.bat           # UI launcher
+│   └── DataForgeETL.UI.bat           # UI launcher
 │
 ├── 📁 Logs/                                # 📝 Application Logs
 │   ├── Console_output_log_*.txt            # Console output
@@ -822,13 +822,13 @@ CSV file import
 #### 💻 Usage
 ```powershell
 # Run complete pipeline
-UniversalExcelTool.exe
+DataForgeETL.exe
 
 # Skip dynamic configuration
-UniversalExcelTool.exe --skip-dynamic-config
+DataForgeETL.exe --skip-dynamic-config
 
 # Custom root directory
-UniversalExcelTool.exe --root-directory "YOUR_PATH"
+DataForgeETL.exe --root-directory "YOUR_PATH"
 ```
 
 ---
@@ -985,7 +985,7 @@ ETL_ExcelToDatabase.exe --batch-size 500000
 
 ### 6. Desktop UI Application
 
-**📍 Location:** `UniversalExcelTool.UI/`  
+**📍 Location:** `DataForgeETL.UI/`  
 **🎯 Purpose:** Modern cross-platform desktop interface
 
 #### ✨ Features
@@ -1030,10 +1030,10 @@ ETL_ExcelToDatabase.exe --batch-size 500000
 
 #### 💻 Usage
 ```powershell
-.\UniversalExcelTool.UI.bat
+.\DataForgeETL.UI.bat
 
 # Or directly
-.\UniversalExcelTool.UI\bin\Release\net8.0\win-x64\UniversalExcelTool.UI.exe
+.\DataForgeETL.UI\bin\Release\net8.0\win-x64\DataForgeETL.UI.exe
 ```
 
 ---
@@ -1096,7 +1096,7 @@ Get-Content Console_output_log_*.txt -Tail 50
 ```powershell
 dotnet new console -n ETL_YourModule
 cd ETL_YourModule
-dotnet add reference ..\Core\UniversalExcelTool.csproj
+dotnet add reference ..\Core\DataForgeETL.csproj
 ```
 
 2. **Copy UnifiedConfigurationManager** from another module
@@ -1153,7 +1153,7 @@ pause
 sqlcmd -S YOUR_SERVER\INSTANCE -d YOUR_DATABASE -Q "SELECT @@VERSION"
 
 # Verify configuration
-UniversalExcelTool.exe --show-config
+DataForgeETL.exe --show-config
 
 # Check SQL Server configuration
 SQL Server Configuration Manager → Protocols → Enable TCP/IP
@@ -1185,7 +1185,7 @@ Get-ChildItem $inputPath -Filter *.xlsx
 Test-Path "YOUR_INPUT_PATH" -PathType Container
 
 # Set RootDirectory explicitly
-UniversalExcelTool.exe --root-directory "ABSOLUTE_PATH"
+DataForgeETL.exe --root-directory "ABSOLUTE_PATH"
 ```
 
 </details>
@@ -1242,7 +1242,7 @@ ORDER BY ORDINAL_POSITION
 .\Build_All_Release.bat
 
 # Verify executable exists
-Test-Path ".\Core\bin\Release\net8.0\win-x64\UniversalExcelTool.exe"
+Test-Path ".\Core\bin\Release\net8.0\win-x64\DataForgeETL.exe"
 
 # Check configured path
 Get-Content appsettings.json | ConvertFrom-Json | 
@@ -1309,7 +1309,7 @@ Test-Path ".\dynamic_table_config.json"
 Get-Content ".\dynamic_table_config.json" | ConvertFrom-Json
 
 # Skip dynamic config (use static config)
-UniversalExcelTool.exe --skip-dynamic-config
+DataForgeETL.exe --skip-dynamic-config
 ```
 
 </details>
@@ -1329,9 +1329,9 @@ UniversalExcelTool.exe --skip-dynamic-config
 ### 🆘 **Getting Help**
 
 ```
-📧 Issues:      https://github.com/yourusername/Universal_Excel_Tool/issues
-📖 Wiki:        https://github.com/yourusername/Universal_Excel_Tool/wiki
-💬 Discussions: https://github.com/yourusername/Universal_Excel_Tool/discussions
+📧 Issues:      https://github.com/yourusername/DataForge_ETL/issues
+📖 Wiki:        https://github.com/yourusername/DataForge_ETL/wiki
+💬 Discussions: https://github.com/yourusername/DataForge_ETL/discussions
 📚 Docs:        See DEPLOYMENT_README.md for deployment details
 ```
 
@@ -1344,7 +1344,7 @@ UniversalExcelTool.exe --skip-dynamic-config
 ### 🌟 **We Welcome Contributions!**
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](http://makeapullrequest.com)
-[![Contributors](https://img.shields.io/github/contributors/yourusername/Universal_Excel_Tool?style=for-the-badge)](https://github.com/yourusername/Universal_Excel_Tool/graphs/contributors)
+[![Contributors](https://img.shields.io/github/contributors/yourusername/DataForge_ETL?style=for-the-badge)](https://github.com/yourusername/DataForge_ETL/graphs/contributors)
 
 </div>
 
@@ -1370,8 +1370,8 @@ graph LR
 
 **1️⃣ Fork & Clone**
 ```bash
-git clone https://github.com/your-username/Universal_Excel_Tool.git
-cd Universal_Excel_Tool
+git clone https://github.com/your-username/DataForge_ETL.git
+cd DataForge_ETL
 git checkout -b feature/your-feature
 ```
 
@@ -1451,7 +1451,7 @@ chore: Update dependencies
 
 <div align="center">
 
-**MIT License** © 2025 Universal Excel Tool
+**MIT License** © 2025 DataForge ETL
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
@@ -1472,19 +1472,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <td align="center">
 
 ### 🐛 **Report Bug**
-[Create Issue](https://github.com/yourusername/Universal_Excel_Tool/issues)
+[Create Issue](https://github.com/yourusername/DataForge_ETL/issues)
 
 </td>
 <td align="center">
 
 ### 💡 **Request Feature**
-[Feature Request](https://github.com/yourusername/Universal_Excel_Tool/issues/new)
+[Feature Request](https://github.com/yourusername/DataForge_ETL/issues/new)
 
 </td>
 <td align="center">
 
 ### 💬 **Discussions**
-[Join Community](https://github.com/yourusername/Universal_Excel_Tool/discussions)
+[Join Community](https://github.com/yourusername/DataForge_ETL/discussions)
 
 </td>
 <td align="center">
@@ -1529,9 +1529,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ for efficient data processing**
 
-[![Star History](https://img.shields.io/github/stars/yourusername/Universal_Excel_Tool?style=social)](https://github.com/yourusername/Universal_Excel_Tool/stargazers)
-[![Forks](https://img.shields.io/github/forks/yourusername/Universal_Excel_Tool?style=social)](https://github.com/yourusername/Universal_Excel_Tool/network/members)
-[![Watchers](https://img.shields.io/github/watchers/yourusername/Universal_Excel_Tool?style=social)](https://github.com/yourusername/Universal_Excel_Tool/watchers)
+[![Star History](https://img.shields.io/github/stars/yourusername/DataForge_ETL?style=social)](https://github.com/yourusername/DataForge_ETL/stargazers)
+[![Forks](https://img.shields.io/github/forks/yourusername/DataForge_ETL?style=social)](https://github.com/yourusername/DataForge_ETL/network/members)
+[![Watchers](https://img.shields.io/github/watchers/yourusername/DataForge_ETL?style=social)](https://github.com/yourusername/DataForge_ETL/watchers)
 
 ---
 

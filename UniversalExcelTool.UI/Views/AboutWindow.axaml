@@ -1,10 +1,10 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:UniversalExcelTool.UI.ViewModels"
+        xmlns:vm="using:DataForgeETL.UI.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="400"
-        x:Class="UniversalExcelTool.UI.Views.AboutWindow"
+        x:Class="DataForgeETL.UI.Views.AboutWindow"
         x:DataType="vm:AboutViewModel"
         Title="About"
         Width="500" Height="400"
@@ -30,7 +30,7 @@
             </Border>
 
             <!-- App Name -->
-            <TextBlock Text="Universal Excel Tool" 
+            <TextBlock Text="DataForge ETL" 
                        FontSize="28" 
                        FontWeight="Bold"
                        HorizontalAlignment="Center"/>

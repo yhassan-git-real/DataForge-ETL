@@ -1,4 +1,4 @@
-﻿using ETL_Excel.Modules;
+using ETL_Excel.Modules;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;

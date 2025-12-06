@@ -1,8 +1,8 @@
-# Universal Excel Tool - Avalonia UI
+# DataForge ETL - Avalonia UI
 
 ## 🎉 Phase 1 + Phase 2 Implementation Complete!
 
-This is the modern desktop UI implementation of the Universal Excel Tool using Avalonia UI framework.
+This is the modern desktop UI implementation of the DataForge ETL using Avalonia UI framework.
 
 ## ✅ What's Been Implemented
 
@@ -38,7 +38,7 @@ This is the modern desktop UI implementation of the Universal Excel Tool using A
 
 1. **Restore NuGet packages:**
    ```bash
-   cd UniversalExcelTool.UI
+   cd DataForgeETL.UI
    dotnet restore
    ```
 
@@ -63,7 +63,7 @@ The executable will be in: `bin/Release/net8.0/win-x64/publish/`
 ## 📁 Project Structure
 
 ```
-UniversalExcelTool.UI/
+DataForgeETL.UI/
 ├── App.axaml                    # Application entry point
 ├── Program.cs                   # Main program with dual-mode support
 ├── Assets/                      # Images, icons, resources
@@ -185,7 +185,7 @@ These are all planned for Phase 3 and beyond!
 
 ## 📝 License
 
-Same as parent project - Universal Excel Tool
+Same as parent project - DataForge ETL
 
 ---
 

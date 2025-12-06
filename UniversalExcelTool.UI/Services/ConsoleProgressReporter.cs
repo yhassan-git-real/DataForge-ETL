@@ -1,6 +1,6 @@
 using System;
 
-namespace UniversalExcelTool.UI.Services
+namespace DataForgeETL.UI.Services
 {
     /// <summary>
     /// Console implementation of IProgressReporter for fallback/testing

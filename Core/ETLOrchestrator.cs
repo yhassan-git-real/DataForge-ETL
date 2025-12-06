@@ -2,9 +2,9 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using UniversalExcelTool.Core;
+using DataForgeETL.Core;
 
-namespace UniversalExcelTool.Core
+namespace DataForgeETL.Core
 {
     /// <summary>
     /// Centralized orchestrator for the Universal Excel Tool ETL process
